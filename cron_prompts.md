@@ -2,7 +2,7 @@
 
 > Auto-generated from `~/.hermes/cron/jobs.json`
 
-> Updated: 2026-04-27T14:44:03+08:00
+> Updated: 2026-04-27T14:54:16+08:00
 
 ---
 
@@ -89,7 +89,7 @@
 - **Enabled**: True
 - **State**: scheduled
 - **Deliver**: `local`
-- **Last Run**: 2026-04-27T14:17:44.508855+08:00
+- **Last Run**: 2026-04-27T14:47:59.725123+08:00
 - **Last Status**: ok
 
 ```
@@ -373,6 +373,14 @@ cd ~/scripts/ctrip_scraper && bash browser_session_checker.sh
 ### ⏱️ 执行监控
 - **运行起始时间：** [使用 GMT+8 时区，格式：YYYY-MM-DD HH:MM:ss GMT+8]
 - **运行时长：** [本次执行耗时]
+**输出格式要求：**
+每条新闻/每条关键信息必须包含：
+- 一句中文摘要
+- 一句对应英文原文（或其他语种原文/翻译）
+示例格式：
+- [中文摘要]
+- [Original text / Translation]
+
 ```
 
 ---
@@ -433,6 +441,14 @@ cd ~/scripts/ctrip_scraper && bash browser_session_checker.sh
 ### ⏱️ 执行监控
 - **运行起始时间：** [使用 GMT+8 时区，格式：YYYY-MM-DD HH:MM:ss GMT+8]
 - **运行时长：** [本次执行耗时]
+**输出格式要求：**
+每条新闻/每条关键信息必须包含：
+- 一句中文摘要
+- 一句对应英文原文（或其他语种原文/翻译）
+示例格式：
+- [中文摘要]
+- [Original text / Translation]
+
 ```
 
 ---
@@ -497,6 +513,14 @@ cd ~/scripts/ctrip_scraper && bash browser_session_checker.sh
 ### ⏱️ 执行监控
 - **运行起始时间：** [使用 GMT+8 时区，格式：YYYY-MM-DD HH:MM:ss GMT+8]
 - **运行时长：** [本次执行耗时]
+**输出格式要求：**
+每条新闻/每条关键信息必须包含：
+- 一句中文摘要
+- 一句对应英文原文（或其他语种原文/翻译）
+示例格式：
+- [中文摘要]
+- [Original text / Translation]
+
 ```
 
 ---
@@ -556,6 +580,14 @@ REQUIREMENTS:
 - Prefer cutting-edge tech, not generic news
 - Format each news item: [事件]（[日期]）[来源] — [中文摘要] + [原文摘要]
 - Follow the output structure in the template file
+**输出格式要求：**
+每条新闻/每条关键信息必须包含：
+- 一句中文摘要
+- 一句对应英文原文（或其他语种原文/翻译）
+示例格式：
+- [中文摘要]
+- [Original text / Translation]
+
 ```
 
 ---
@@ -629,6 +661,14 @@ REQUIREMENTS:
 - Follow the output structure in the template file
 - Match jobs to the target profile with specific reasoning
 - Be analytical: identify hiring trends, not just list jobs
+**输出格式要求：**
+每条新闻/每条关键信息必须包含：
+- 一句中文摘要
+- 一句对应英文原文（或其他语种原文/翻译）
+示例格式：
+- [中文摘要]
+- [Original text / Translation]
+
 ```
 
 ---
@@ -717,6 +757,14 @@ REQUIREMENTS:
 - Be analytical: identify content arbitrage, not just list trends
 - Distinguish formats (short video / long video / image / article) and languages
 - WeChat ecosystem:公众号爆款、视频号趋势、小程序内容、朋友圈传播
+**输出格式要求：**
+每条新闻/每条关键信息必须包含：
+- 一句中文摘要
+- 一句对应英文原文（或其他语种原文/翻译）
+示例格式：
+- [中文摘要]
+- [Original text / Translation]
+
 ```
 
 ---
