@@ -2,7 +2,7 @@
 
 > Auto-generated from `~/.hermes/cron/jobs.json`
 
-> Updated: 2026-04-27T11:21:51.051735+08:00
+> Updated: 2026-04-27T14:13:06+08:00
 
 ---
 
@@ -13,7 +13,7 @@
 - **Enabled**: True
 - **State**: scheduled
 - **Deliver**: `origin`
-- **Last Run**: 2026-04-27T10:09:09.436492+08:00
+- **Last Run**: 2026-04-27T14:09:24.133868+08:00
 - **Last Status**: ok
 
 ```
@@ -89,7 +89,7 @@
 - **Enabled**: True
 - **State**: scheduled
 - **Deliver**: `local`
-- **Last Run**: 2026-04-27T10:47:40.988605+08:00
+- **Last Run**: 2026-04-27T13:47:26.945277+08:00
 - **Last Status**: ok
 
 ```
@@ -444,7 +444,7 @@ cd ~/scripts/ctrip_scraper && bash browser_session_checker.sh
 - **Enabled**: True
 - **State**: scheduled
 - **Deliver**: `origin`
-- **Last Run**: 2026-04-26T11:45:37.942153+08:00
+- **Last Run**: 2026-04-27T12:21:18.608702+08:00
 - **Last Status**: ok
 
 ```
@@ -508,29 +508,14 @@ cd ~/scripts/ctrip_scraper && bash browser_session_checker.sh
 - **Enabled**: True
 - **State**: scheduled
 - **Deliver**: `origin`
-- **Last Run**: None
-- **Last Status**: None
+- **Last Run**: 2026-04-27T13:07:35.408432+08:00
+- **Last Status**: ok
 
 ```
-DELIVERY: Your final response will be automatically delivered.
+[SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]
 
 MISSION:
-Track the latest (past 24h) global developments in:
-- Architecture AI
-- Construction technology
-- Smart buildings / smart cities
-- Sustainable building / new materials
-- PropTech / construction startups
-
-GOAL:
-Produce a HIGH-VALUE intelligence report similar to a VC technology radar.
-
-You MUST:
-1. Use web_search with provided keywords
-2. Only extract information from past 24 hours
-3. Prioritize local-language sources (NOT only English)
-4. Avoid repeated or outdated content
-5. Prefer cutting-edge / frontier tech (NOT generic news)
+Track the latest (past 24h) global developments in Architecture AI, Construction Tech, Smart Buildings, Sustainable Materials, and PropTech. Produce a HIGH-VALUE intelligence report.
 
 PRIORITY TECHNOLOGIES:
 - generative AI in architecture
@@ -547,130 +532,103 @@ CRITICAL OUTPUT REQUIREMENTS:
 - Score each opportunity
 - Extract signals, not just summarize news
 
-SEARCH KEYWORDS (use all of them, rotate for variety):
-1. architecture AI generative design buildings latest news
-2. construction technology robotics automation building innovation today
-3. smart buildings AI IoT digital twin construction latest
-4. sustainable architecture green building technology innovation today
-5. 3D printing buildings construction innovation news
-6. modular construction prefab housing technology trends
-7. architecture tech startups AI construction startups funding latest
-8. proptech AI building technology venture capital news
-9. 建筑 AI 建筑科技 施工 自动化 最新
-10. 智慧城市 建筑 数字孪生 技术 发展 今天
-11. 建築 AI 設計 自動化 最新ニュース
-12. 建設技術 ロボット 建築 イノベーション 今日
-13. Bau AI Architektur Technologie Innovation Nachrichten heute
-14. architecture intelligence artificielle bâtiment innovation actualités aujourd'hui
+EXECUTION:
+1. Read the output template from: ~/.hermes/cron/templates/architecture_daily_template.md
+2. Use web_search with these 14 keywords (search each once):
+   - "architecture AI generative design" latest news
+   - "construction technology robotics automation" today
+   - "smart buildings AI IoT digital twin" latest
+   - "sustainable architecture green building" innovation today
+   - "3D printing buildings construction" news
+   - "modular construction prefab housing" technology trends
+   - "architecture tech startups" AI construction funding
+   - "proptech AI building technology" venture capital
+   - 建筑 AI 建筑科技 施工 自动化 最新
+   - 智慧城市 建筑 数字孪生 技术 发展 今天
+   - 建築 AI 設計 自動化 最新ニュース
+   - 建設技術 ロボット 建築 イノベーション 今日
+   - Bau AI Architektur Technologie Innovation Nachrichten heute
+   - architecture intelligence artificielle bâtiment innovation actualités aujourd'hui
 
-FORMAT:
-[事件]（[日期]）[来源] — [中文] + [原文摘要]
+REQUIREMENTS:
+- Only use info from past 24h
+- Prioritize local-language sources
+- Prefer cutting-edge tech, not generic news
+- Format each news item: [事件]（[日期]）[来源] — [中文摘要] + [原文摘要]
+- Follow the output structure in the template file
+```
 
-OUTPUT STRUCTURE:
+---
 
-🌍 建筑 AI & 建筑科技日报
+## 猎头日报
+- **ID**: `9f0b5c3692fd`
+- **Schedule**: `0 7 * * *`
+- **Repeat**: None
+- **Enabled**: True
+- **State**: scheduled
+- **Deliver**: `origin`
+- **Last Run**: None
+- **Last Status**: None
 
-📅 日期： [当天]
+```
+[SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]
 
-📰 一、全球关键动态（Top Signals）
-（5–10条，偏"信号"而非普通新闻）
+ROLE:
+You are an AI headhunter + talent intelligence analyst.
 
-🧠 二、技术分类解析（自动分类）
-🤖 1. AI 建筑设计（Architecture AI / Generative Design）
-[新闻/案例]
-技术方向总结
-🏗 2. 智能建造（Construction Tech / Robotics）
-[新闻/案例]
-🌆 3. 智能建筑 / 城市（Smart Building / Smart City）
-[新闻/案例]
-🌱 4. 可持续 / 新材料（Sustainability / Materials）
-[新闻/案例]
-💰 5. 公司 / 投资 / Startup（PropTech）
-[融资 / 新公司 / 产品]
-🎓 6. 学术 / 前沿研究（Research / University）
-[论文 / 实验 / 技术突破]
+MISSION:
+Identify REAL job opportunities (past 24h) globally and match them to a target candidate profile.
 
-📈 三、趋势总结（跨行业洞察）
-（3–5条）
+TARGET PROFILE:
+- Education: Bachelor in Civil Engineering, Master in Structural Engineering (Building), Master in Computing/Tech
+- Skills: Civil Engineering, Construction Management, Computational/programming skills, Potential AI/data/software capability
+- Current Role: Project Manager in Singapore HDB Residential Building Construction
+- Nationality: Chinese, Singapore Permanent Resident
+- Location: Singapore (Main), US, Australia, Canada, UK, Spain, India, Open to other countries
+- Goal: High-growth, high-income, global career path. Prefer tech-driven roles (NOT traditional architecture only)
 
-🚀 四、未来 6–12 个月技术爆发预测
-⚠️ 必须基于"当天新闻信号 + 行业趋势"，不能空想
-🔥 技术方向 1：
-📊 爆发概率：高 / 中 / 低
-⏳ 时间窗口：3–6个月 / 6–12个月
-📡 触发信号：
-💡 为什么会爆发：
-🚧 当前瓶颈：
-🌍 主要推动地区：
-（至少输出 3–5 个技术方向）
+PRIORITY ROLES:
+- AI + Architecture
+- BIM + AI / Digital Twin
+- Smart City / Urban Tech
+- PropTech / Construction Tech
+- Robotics / automation in construction
 
-💰 五、公司 Watchlist（重点模块）
-⚠️ 只选"值得长期跟踪"的公司（不要泛滥）
-🏢 公司名称：
-🧭 领域：
-🌍 国家：
-📊 当前阶段：
-🧠 核心技术：
-📰 今日信号：
-🤖 投资评分（必须打分）：
-⭐️ 综合评分：X / 10
-📈 增长潜力：X / 10
-🧱 技术壁垒：X / 10
-💰 商业化能力：X / 10
-⚠️ 风险：X / 10
-💡 投资逻辑：
-为什么值得关注：
-是否存在 hype：
-竞争对手情况：
-（输出 3–6 家公司）
+STRICT RULES:
+- Only use past 24h info
+- NO hallucinated jobs
+- Prefer real companies / hiring signals
+- If no strong signals → say "🚫 无法获取最新信息"
 
-🤖 六、技术投资评分系统（新增）
-对"技术方向"而不是公司打分：
-🔹 技术方向：
-⭐️ 投资价值：X / 10
-🧠 技术成熟度：早期 / 成长期 / 成熟期
-🌍 主要市场：
-📈 市场需求：X / 10
-🚀 增长速度：X / 10
-⚠️ 风险：X / 10
-🧾 结论：
-是否值得现在进入：
-更适合：投资 / 创业 / 学习
-（至少 3 个技术）
+EXECUTION:
+1. Read the output template from: ~/.hermes/cron/templates/headhunter_daily_template.md
+2. Use web_search with these 20 keywords (search each once, rotate for variety):
+   - "AI architecture jobs" hiring generative design 2025 2026
+   - "BIM AI jobs" digital twin hiring construction tech
+   - "proptech hiring" AI architecture startups jobs
+   - "construction robotics jobs" automation building tech hiring
+   - "smart city jobs" urban tech hiring AI infrastructure
+   - "Singapore tech jobs" hiring AI architecture BIM
+   - "Germany jobs" digital twin BIM AI hiring construction
+   - "US AI construction jobs" hiring tech architecture
+   - "China AI 建筑 招聘 BIM AI 工作 2025 2026"
+   - "欧洲 建筑 科技 招聘 数字孪生 BIM 工作"
+   - "AI computational designer jobs" hiring
+   - "digital twin jobs" construction hiring 2025 2026
+   - "PropTech jobs" hiring startups funding
+   - "construction tech jobs" hiring automation robotics
+   - "smart buildings jobs" IoT AI hiring
+   - "generative design jobs" architecture AI hiring
+   - "BIM manager jobs" AI digital transformation
+   - "urban tech jobs" smart city hiring 2025 2026
+   - "Singapore construction jobs" project manager AI tech
+   - "Australia construction jobs" BIM AI hiring
 
-🧠 七、学习价值地图（升级版）
-技术方向：XXX
-🎯 学习优先级：高 / 中 / 低
-为什么值得学？
-🧠 推荐人群：
-🛠 需要技能：
-⏳ 学习回报周期：
-💰 是否有变现潜力：
-
-⚖️ 八、技术 vs 传统建筑（深度分析）
-🧱 技术：AI 生成式建筑设计
-✅ 相对传统优势：
-❌ 核心问题：
-⚠️ 现实限制：
-💰 成本结构变化：
-📊 是否可规模化：
-（至少 3–4 个）
-
-🌍 九、全球格局变化
-哪些国家在领先：
-哪些地区在疯狂投资：
-技术路线差异：
-
-🧾 十、备注
-数据来源：全球媒体 / 本地媒体 / 公司公告 / 研究机构
-所有信息必须来自过去 24h
-无数据 → "🚫 无法获取最新信息"
-
-⏱️ 执行监控
-运行时间：[使用 GMT+8 时区，格式：YYYY-MM-DD HH:MM:ss GMT+8]
-运行时长：
-搜索次数：
-有效结果数：
+REQUIREMENTS:
+- Format each news item: [公司/岗位]（[日期]）[来源]
+- Follow the output structure in the template file
+- Match jobs to the target profile with specific reasoning
+- Be analytical: identify hiring trends, not just list jobs
 ```
 
 ---
