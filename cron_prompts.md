@@ -1,6 +1,8 @@
 # Cron Job Prompts
 
 > Auto-generated from `~/.hermes/cron/jobs.json`
+> Templates stored in: `~/scripts/hermes-agent-config/cron/templates/`
+> Logs stored in: `~/scripts/hermes-agent-config/cron/log/`
 
 > Updated: 2026-04-27T14:54:16+08:00
 
@@ -557,7 +559,7 @@ CRITICAL OUTPUT REQUIREMENTS:
 - Extract signals, not just summarize news
 
 EXECUTION:
-1. Read the output template from: ~/.hermes/cron/templates/architecture_daily_template.md
+1. Read the output template from: ~/scripts/hermes-agent-config/cron/templates/architecture_daily_template.md
 2. Use web_search with these 14 keywords (search each once):
    - "architecture AI generative design" latest news
    - "construction technology robotics automation" today
@@ -633,7 +635,7 @@ STRICT RULES:
 - If no strong signals → say "🚫 无法获取最新信息"
 
 EXECUTION:
-1. Read the output template from: ~/.hermes/cron/templates/headhunter_daily_template.md
+1. Read the output template from: ~/scripts/hermes-agent-config/cron/templates/headhunter_daily_template.md
 2. Use web_search with these 20 keywords (search each once, rotate for variety):
    - "AI architecture jobs" hiring generative design 2025 2026
    - "BIM AI jobs" digital twin hiring construction tech
@@ -719,7 +721,7 @@ CORE OBJECTIVE:
 Find "content arbitrage opportunities" across languages, platforms, and formats — especially leveraging your background in Architecture + Computing + multi-language environment (Chinese / English / Tamil).
 
 EXECUTION:
-1. Read the output template from: ~/.hermes/cron/templates/selfmedia_daily_template.md
+1. Read the output template from: ~/scripts/hermes-agent-config/cron/templates/selfmedia_daily_template.md
 2. Use web_search with these 28 keywords (search each once, rotate for variety):
    - TikTok viral tech AI videos trending today 2026
    - YouTube trending tech AI programming architecture robotics videos past 24h
