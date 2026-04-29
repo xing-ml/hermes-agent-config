@@ -1,22 +1,11 @@
-# Cron Job Prompts
+# Cronjob Prompts — 全量备份
 
-> Auto-generated from `~/.hermes/cron/jobs.json`
-> Templates stored in: `~/scripts/hermes-agent-config/cron/templates/`
-> Logs stored in: `~/scripts/hermes-agent-config/cron/log/`
-
-> Updated: 2026-04-29T22:58:33+08:00
+> 自动生成于 2026-04-29 23:12:37
+> 来源：`~/.hermes/cron/jobs.json`
 
 ---
-
 ## 携程爬虫 - outbound
-- **ID**: `aad276f98adc`
-- **Schedule**: `0 6,10,14,18,22 * * *`
-- **Repeat**: 99999
-- **Enabled**: True
-- **State**: scheduled
-- **Deliver**: `origin`
-- **Last Run**: 2026-04-29T22:14:02.544037+08:00
-- **Last Status**: ok
+**Job ID:** `aad276f98adc`
 
 ```
 [SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]
@@ -47,16 +36,8 @@ CRITICAL: DO NOT use the todo tool. DO NOT update task lists. DO NOT create stat
 ```
 
 ---
-
 ## 携程爬虫 - return
-- **ID**: `e04689fb7e3b`
-- **Schedule**: `30 6,10,14,18,22 * * *`
-- **Repeat**: 99999
-- **Enabled**: True
-- **State**: scheduled
-- **Deliver**: `origin`
-- **Last Run**: 2026-04-29T22:43:30.299203+08:00
-- **Last Status**: ok
+**Job ID:** `e04689fb7e3b`
 
 ```
 [SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]
@@ -87,16 +68,8 @@ CRITICAL: DO NOT use the todo tool. DO NOT update task lists. DO NOT create stat
 ```
 
 ---
-
 ## browser_session_checker
-- **ID**: `2c5ec19b5464`
-- **Schedule**: `17,47 * * * *`
-- **Repeat**: None
-- **Enabled**: True
-- **State**: scheduled
-- **Deliver**: `local`
-- **Last Run**: 2026-04-29T22:56:58.958695+08:00
-- **Last Status**: ok
+**Job ID:** `2c5ec19b5464`
 
 ```
 📊 浏览器会话检查 (HAK → SIN)
@@ -131,16 +104,8 @@ CRITICAL: DO NOT use the todo tool. DO NOT update task lists. DO NOT create stat
 ```
 
 ---
-
 ## 2026美以伊冲突国际舆情日报
-- **ID**: `9dd412553499`
-- **Schedule**: `0 15 * * *`
-- **Repeat**: None
-- **Enabled**: True
-- **State**: scheduled
-- **Deliver**: `origin`
-- **Last Run**: 2026-04-29T15:24:26.904109+08:00
-- **Last Status**: ok
+**Job ID:** `9dd412553499`
 
 ```
 [SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]CRITICAL: DO NOT use the todo tool. DO NOT update task lists. DO NOT create status updates. Go DIRECTLY to web_search.
@@ -173,50 +138,16 @@ STRICT RULES:
 EXECUTION:
 1. Read the output template from: ~/scripts/hermes-agent-config/cron/templates/international_affairs_template.md
 2. Use web_search with these keywords (search each once):
-   - US Israel Iran Middle East conflict OR war 
-   - US government OR Biden/Trump OR State Department position OR statement on Israel Iran 
-   - American public opinion OR protest OR reaction Israel Iran war
-   - UK Israel Iran Middle East war OR conflict 
-   - UK government OR Foreign Office stance OR statement Israel Iran
-   - Canada Israel Iran Middle East conflict
-   - Israël Iran guerre OR conflit Moyen-Orient actualités 
-   - gouvernement français OR Macron position Israël Iran
-   - Israel Iran Krieg OR Konflikt Naher Osten Nachrichten 
-   - deutsche Regierung OR Scholz Haltung Israel Iran
-   - 中東 イスラエル イラン 紛争 OR 戦争 ニュース
-   - Israel Irán guerra OR conflicto Oriente Medio noticias
-   - Israel Irã guerra OR conflito Oriente Médio notícias
-   - Israel Irán guerra Oriente Medio noticias
-   - 중동 이스라엘 이란 전쟁 OR 분쟁 뉴스
-   - Израиль Иран война OR конфликт Ближний Восток новости 
-   - правительство РФ OR Путин позиция Израиль Иран
-   - İsrail İran savaş OR çatışma Orta Doğu
-   - Israele Iran guerra OR conflitto Medio Oriente notizie
-   - Israël Iran oorlog Midden-Oosten conflict nieuws
-   - Izrael Iran wojna Bliski Wschód konflikt wiadomości
-   - Israel Iran perang OR konflik Timur Tengah berita
-   - Singapore Israel Iran Middle East conflict
-   - อิสราเอล อิหร่าน สงคราม OR ความขัดแย้ง ตะวันออกกลาง ข่าว
-   - 中东 伊朗 以色列 冲突 OR 战争 OR 局势 
-   - 中国政府 OR 外交部 立场 伊朗以色列
-   - 中東 伊朗 以色列 戰爭 OR 衝突 局勢
-   - 中東 伊朗 以色列 戰爭 OR 衝突 局勢
-   - मध्य पूर्व ईरान इज़राइल युद्ध OR संघर्ष खबर 
-   - Indian government OR Modi stance on Israel Iran
-   - EU Israel Iran Middle East war OR sanctions OR position 
-   - European Commission OR von der Leyen statement Israel Iran
-   - الإمارات OR الخليج إسرائيل إيران حرب OR صراع الشرق الأوسط أخبار 
-   - حكومة الإمارات OR موقف رسمي إسرائيل إيران
-   - السعودية إسرائيل إيران حرب OR أزمة الخليج أخبار
-   - ایران اسرائیل جنگ OR درگیری خاورمیانه خبر 
-   - دولت ایران OR موضع رسمی اسرائیل 
-   - مردم ایران OR اعتراضات OR نظرات عمومی جنگ
-   - أفريقيا OR مصر OR الجزائر إسرائيل إيران حرب الشرق الأوسط أخبار
-   - Portugal Israel Irão guerra OR conflito Médio Oriente notícias OR actualidades 
-   - governo português OR posição oficial OR declaração Israel Irão OR protestos OR opinião pública guerra Médio Oriente
-   - இஸ்ரேல் இரான் போர் OR மோதல் OR தீவிரப்போர் 
-   - தமிழ்நாடு செய்தி 
-   - தமிழ்நாடு அரசு OR இந்திய அரசு OR மக்கள் எதிர்ப்பு OR போராட்டம் OR பொது கருத்து இஸ்ரேல் இரான் போர்
+   - "US Israel Iran" OR "United States Israel Iran" (war OR conflict OR strike OR attack) (government OR Biden OR Trump OR "State Department" OR public opinion OR protest OR reaction)
+   - (UK OR Britain OR "Foreign Office" OR Canada OR Australia) (Israel Iran) (war OR conflict OR Middle East) (stance OR position OR statement OR government)
+   - (France OR Macron OR Germany OR Deutschland OR Scholz) (Israël Iran OR Israel Iran) (guerre OR Krieg OR conflit OR Konflikt) (position OR Haltung OR gouvernement OR Regierung)
+   - EU OR "European Union" OR "European Commission" OR "von der Leyen" (Israel Iran) (war OR conflict OR sanctions OR position OR statement)
+   - (日本 OR 中東 OR イスラエル イラン) OR (韓国 OR 중동 이스라엘 이란) (紛争 OR 戦争 OR 전쟁 OR 분쟁) (ニュース OR 뉴스 OR government OR stance)
+   - (Россия OR Путин OR "Израиль Иран" OR Izrael Iran) (война OR война OR конфликт) (правительство OR позиция) OR (Poland OR Polska) (Izrael Iran) wojna
+   - (España OR Spain OR Italia OR Italy OR Portugal) (Israel Irán OR Israele Iran OR Israel Irão) (guerra OR guerra OR conflito OR conflito) (noticias OR notizie OR actualidades OR governo OR posição)
+   - (中东 OR 中東) (伊朗 以色列 OR 伊朗以色列) (冲突 OR 战争 OR 局势 OR 戰爭 OR 衝突) (中国政府 OR 外交部 OR 立场 OR 台灣 OR 香港 OR 新加坡) (最新 OR 新闻)
+   - (India OR Modi OR "मध्य पूर्व" OR भारत) (Israel Iran) (war OR conflict OR युद्ध) OR (Thailand OR ไทย) (อิสราเอล อิหร่าน) สงคราม OR (Indonesia) (Israel Iran) perang
+   - (Türkiye OR Saudi OR السعودية OR UAE OR الإمارات OR ایران OR اسرائيل) (حرب OR صراع OR جنگ) (الشرق الأوسط OR خاورمیانه) OR (Brazil OR México) (Israel Irã OR Israel Irán) (guerra OR conflito) notícias
 
 EQUIREMENTS:
 - Format each news item: [来源/机构]（[日期]）[事件摘要]
@@ -239,16 +170,8 @@ EQUIREMENTS:
 ```
 
 ---
-
 ## AI模型前沿日报
-- **ID**: `e52d2d4c8d29`
-- **Schedule**: `0 11 * * *`
-- **Repeat**: None
-- **Enabled**: True
-- **State**: scheduled
-- **Deliver**: `origin`
-- **Last Run**: 2026-04-29T11:48:02.129322+08:00
-- **Last Status**: ok
+**Job ID:** `e52d2d4c8d29`
 
 ```
 [SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]CRITICAL: DO NOT use the todo tool. DO NOT update task lists. DO NOT create status updates. Go DIRECTLY to web_search.
@@ -281,31 +204,16 @@ STRICT RULES:
 EXECUTION:
 1. Read the output template from: ~/scripts/hermes-agent-config/cron/templates/ai_model_template.md
 2. Use web_search with these keywords (search each once):
-   - "AI model" OR "large language model" OR "foundation model" OR "frontier model" (release OR launch OR announcement OR introduction OR new)
-   - "large language model" OR LLM (breakthrough OR advance OR improvement OR scaling OR post-training)
-   - "open source AI model" OR "open weight model" OR "open source LLM" (release OR launch OR weights)
-   - "multimodal AI model" OR "multimodal LLM" OR "vision-language model" OR "omni model" (vision OR audio OR video)
-   - "AI model" (benchmark OR evaluation OR leaderboard OR performance) (results OR score OR ranking)
-   - "AI model" (efficiency OR parameter efficiency OR compression OR distillation OR pruning OR quantization)
-   - "AI model" (fine-tuning OR LoRA OR PEFT OR adaptation OR instruction tuning)
-   - "AI model" (reasoning OR "chain of thought" OR CoT OR "test-time compute" OR o1-like)
-   - "AI agent" OR "agentic AI" OR "autonomous agent" (planning OR reasoning OR tool use OR multi-agent)
-   - "AI model" (video generation OR text-to-video OR "video understanding")
-   - "AI model" (audio OR speech OR "speech recognition" OR "speech synthesis" OR voice)
-   - "AI model" (coding OR programming OR code generation OR "programming assistant" OR software engineering)
-   - "AI infrastructure" OR "AI compute" OR "training cluster" OR "AI chips" OR "GPU" OR "accelerator" (training OR scaling)
-   - "AI regulation" OR "AI policy" OR "AI governance" OR "model safety" OR "AI alignment" OR "responsible AI"
-   - "AI model" (medical OR healthcare OR diagnosis OR drug discovery OR clinical)
-   - "AI model" (scientific OR research OR discovery OR "scientific computing" OR simulation)
-   - "AI model" (robotics OR "robot control" OR manipulation OR embodiment)
-   - "AI model" ("autonomous vehicle" OR "self-driving" OR AV OR "autonomous driving")
-   - "AI model" (climate OR environment OR sustainability OR "climate modeling" OR carbon)
-   - "AI model" (education OR tutoring OR "personalized learning" OR edtech)
-   - AI 大模型 OR 基础模型 OR 前沿模型 (发布 OR 推出 OR 新 OR 突破)
-   - 开源大模型 OR 开源 LLM (发布 OR 权重)
-   - 多模态大模型 OR 视觉语言模型 OR Omni模型
-   - AI 智能体 OR Agentic AI OR 自主智能体
-   - AI 模型 (基准 OR 评测 OR 微调 OR LoRA OR 推理 OR 视频生成 OR 医疗 OR 科学)
+   - "AI model" OR "large language model" OR LLM OR "foundation model" OR "frontier model" (release OR launch OR announcement OR breakthrough OR advance OR new OR scaling)
+   - "open source AI model" OR "open weight model" OR "open source LLM" OR "multimodal AI model" OR "multimodal LLM" OR "vision-language model" OR "omni model" (release OR launch OR weights OR vision OR audio OR video)
+   - "AI model" OR LLM (benchmark OR evaluation OR leaderboard OR performance) (results OR score OR ranking OR comparison)
+   - "AI model" OR LLM (efficiency OR compression OR distillation OR quantization OR fine-tuning OR LoRA OR PEFT OR reasoning OR "chain of thought" OR CoT OR "test-time compute")
+   - "AI agent" OR "AI agents" OR "agentic AI" OR "autonomous agent" (planning OR reasoning OR tool use OR multi-agent OR memory OR context)
+   - "AI model" OR LLM (video generation OR text-to-video OR audio OR speech OR "speech recognition" OR coding OR "code generation" OR "programming assistant" OR software engineering)
+   - "AI infrastructure" OR "AI compute" OR "training cluster" OR "AI chips" OR GPU OR accelerator (training OR scaling)
+   - ("AI regulation" OR "AI policy" OR "AI governance" OR "model safety" OR "AI alignment") OR ("AI model" (medical OR healthcare OR scientific OR research OR robotics OR "autonomous vehicle" OR climate OR education OR "customer service"))
+   - AI 大模型 OR 基础模型 OR 前沿模型 OR 开源大模型 (发布 OR 推出 OR 新 OR 突破 OR 权重)
+   - 多模态大模型 OR Omni模型 OR AI 智能体 OR 自主智能体 OR AI Agent (基准 OR 评测 OR 微调 OR LoRA OR 推理 OR 视频生成 OR 医疗 OR 科学 OR 企业)
 
 REQUIREMENTS:
 - Format each news item: [公司/机构]（[日期]）[事件摘要]
@@ -328,16 +236,8 @@ REQUIREMENTS:
 ```
 
 ---
-
 ## AI Agent前沿日报
-- **ID**: `cc0fbad9ac15`
-- **Schedule**: `30 11 * * *`
-- **Repeat**: None
-- **Enabled**: True
-- **State**: scheduled
-- **Deliver**: `origin`
-- **Last Run**: 2026-04-29T14:16:31.132347+08:00
-- **Last Status**: ok
+**Job ID:** `cc0fbad9ac15`
 
 ```
 [SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]
@@ -402,16 +302,8 @@ REQUIREMENTS:
 ```
 
 ---
-
 ## 建筑科技新闻日报
-- **ID**: `f27560fc0a0f`
-- **Schedule**: `0 9 * * *`
-- **Repeat**: None
-- **Enabled**: True
-- **State**: scheduled
-- **Deliver**: `origin`
-- **Last Run**: 2026-04-29T09:07:51.738708+08:00
-- **Last Status**: ok
+**Job ID:** `f27560fc0a0f`
 
 ```
 [SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]CRITICAL: DO NOT use the todo tool. DO NOT update task lists. DO NOT create status updates. Go DIRECTLY to web_search.
@@ -446,29 +338,16 @@ STRICT RULES:
 EXECUTION:
 1. Read the output template from: ~/scripts/hermes-agent-config/cron/templates/architecture_tech_template.md
 2. Use web_search with these keywords (search each once):
-   - "architecture AI" OR "generative design" OR "AI in architecture" OR "AI architectural design" 
-   - "construction technology" OR "construction robotics" OR "construction automation" OR "building robotics" OR "site automation"
-   - "smart buildings" OR "intelligent buildings" OR "building AI" OR "IoT buildings" OR "digital twin construction" OR "digital twin building" 
-   - "sustainable architecture" OR "green building technology" OR "net zero building" OR "carbon-neutral construction" innovation OR trends
-   - "3D printed buildings" OR "3D printing construction" OR "robotic 3D printing" building
-   - "modular construction" OR "prefabricated housing" OR "prefab building technology" OR "offsite construction" trends OR innovation
-   - PropTech OR ConTech OR "construction tech" OR "architecture tech" startup OR funding OR investment 
-   - "AI construction" OR "generative AI building" OR "machine learning architecture" OR "AI BIM" 
-   - "building innovation" OR "construction innovation" OR "future of construction" OR "smart construction" 
-   - 建筑 AI OR 建筑人工智能 OR 生成式设计 OR AIGC 建筑 
-   - 建筑科技 OR 施工科技 OR 建造机器人 OR 建筑自动化 OR 智能建造 
-   - 智慧建筑 OR 智能建筑 OR 数字孪生建筑 OR 建筑数字孪生 OR BIM+AI 
-   - 可持续建筑 OR 绿色建筑技术 OR 零碳建筑 OR 低碳建造 创新 OR 技术
-   - 3D打印建筑 OR 建筑3D打印 OR 增材建造 
-   - 模块化建筑 OR 装配式建筑 OR  prefabricated housing OR 预制建筑 技术 趋势
-   - PropTech OR ConTech OR 建筑科技初创 OR 建筑AI创业公司 融资
-   - 建築 AI OR 生成AI 建築 OR 建設ロボット OR 建築自動化 ニュース
-   - スマートビル OR デジタルツイン 建築 OR 3Dプリント建築 OR モジュラー建築 
-   - コンストラクションテック OR 建築テック スタートアップ
-   - Bau AI OR Architektur KI OR Generatives Design Bau OR Robotik Bau Innovation Nachrichten
-   - Nachhaltiges Bauen OR Digitaler Zwilling Bau OR 3D Druck Bauen OR Modulares Bauen 
-   - intelligence artificielle architecture OR conception générative bâtiment OR robotique construction actualités
-   - bâtiment intelligent OR jumeau numérique construction OR impression 3D bâtiment innovation
+   - "architecture AI" OR "AI in architecture" OR "generative design" OR "generative AI architecture" OR "AI architectural design" OR "AI BIM"
+   - "construction technology" OR "construction robotics" OR "construction automation" OR "building robotics" OR "site automation" OR "smart construction" OR "intelligent construction"
+   - "smart buildings" OR "intelligent buildings" OR "building AI" OR "IoT buildings" OR "digital twin construction" OR "digital twin building" OR "smart construction"
+   - "sustainable architecture" OR "green building technology" OR "net zero building" OR "carbon-neutral construction" OR "low carbon building" OR "zero carbon construction"
+   - "3D printed buildings" OR "3D printing construction" OR "robotic 3D printing" OR "3D printed architecture" OR "additive construction"
+   - "modular construction" OR "prefabricated housing" OR "prefab building" OR "offsite construction" OR "modular building" OR "prefabricated construction"
+   - PropTech OR ConTech OR "construction tech" OR "architecture tech" (startup OR funding OR investment OR venture OR innovation)
+   - "building innovation" OR "construction innovation" OR "future of construction" OR "AI construction" OR "machine learning architecture" OR "generative AI building"
+   - 建筑 AI OR 建筑人工智能 OR 生成式设计 OR AIGC 建筑 OR 智能建造 OR 建造机器人 OR 数字孪生建筑 OR BIM+AI OR 装配式建筑 (最新 OR 创新 OR 技术)
+   - (建築 AI OR 生成AI 建築 OR 建設ロボット OR スマートビル OR デジタルツイン 建築 OR 3Dプリント建築) OR (Bau AI OR Architektur KI OR Robotik Bau OR Digitaler Zwilling Bau) OR (intelligence artificielle architecture OR bâtiment intelligent OR jumeau numérique construction)
 
 EQUIREMENTS:
 - Format each news item: [公司/机构]（[日期]）[事件摘要]
@@ -491,16 +370,8 @@ EQUIREMENTS:
 ```
 
 ---
-
 ## 猎头日报
-- **ID**: `9f0b5c3692fd`
-- **Schedule**: `0 7 * * *`
-- **Repeat**: None
-- **Enabled**: True
-- **State**: scheduled
-- **Deliver**: `origin`
-- **Last Run**: 2026-04-29T07:29:38.165887+08:00
-- **Last Status**: ok
+**Job ID:** `9f0b5c3692fd`
 
 ```
 [SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]CRITICAL: DO NOT use the todo tool. DO NOT update task lists. DO NOT create status updates. Go DIRECTLY to web_search.
@@ -568,16 +439,8 @@ EQUIREMENTS:
 ```
 
 ---
-
 ## 自媒体日报
-- **ID**: `b8aebedfdcb7`
-- **Schedule**: `0 17 * * *`
-- **Repeat**: None
-- **Enabled**: True
-- **State**: scheduled
-- **Deliver**: `origin`
-- **Last Run**: 2026-04-29T17:30:06.808556+08:00
-- **Last Status**: ok
+**Job ID:** `b8aebedfdcb7`
 
 ```
 [SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]CRITICAL: DO NOT use the todo tool. DO NOT update task lists. DO NOT create status updates. Go DIRECTLY to web_search.
@@ -610,30 +473,16 @@ STRICT RULES:
 EXECUTION:
 1. Read the output template from: ~/scripts/hermes-agent-config/cron/templates/selfmedia_template.md
 2. Use web_search with these keywords (search each once):
-   - TikTok viral tech AI videos trending  
-   - YouTube trending tech AI programming architecture robotics videos 
-   - Instagram Reels trends tech humor English learning short video
-   - YouTube Shorts vs long form tech content trends 
-   - viral humor tech content TikTok Instagram 
-   - AI robotics construction tech trending videos English
-   - learning English via short video trends TikTok YouTube
-   - 抖音 热门 科技 AI 建筑机器人 短视频 趋势 
-   - 快手 爆款 编程 IT 幽默视频 创作者趋势
-   - 西瓜视频 热门 科技 长视频 AI 趋势
-   - Bilibili 知识区 科技 建筑机器人 弹幕视频 热门
-   - 小红书 笔记 建筑设计 机器人 学习分享 趋势
-   - 抖音 用中文学Tamil 热门内容
-   - Bilibili 学英语 科技幽默 视频趋势
-   - Tamil YouTube trending tech AI education videos
-   - Tamil TikTok viral learning content humor tech
-   - Chinese Tamil language learning content trends YouTube TikTok
-   - Tamil Instagram Reels education tech viral
-   - short video vs long video trends  tech content platforms
-   - content format trends short-form long-form image article self-media 
-   - cross language content arbitrage tech AI English Chinese Tamil
-   - creator trends algorithm changes TikTok YouTube Douyin 
-   - AI generated content vs authentic tech humor trends
-   - underexplored niches tech robotics English learning Chinese Tamil
+   - TikTok viral OR Douyin 热门 (tech OR AI) (trending OR 趋势 OR 爆款) short video
+   - (YouTube Shorts OR "short form" OR "long form" OR "short vs long") (tech OR AI) (trending OR trends)
+   - (Instagram Reels OR TikTok) (tech OR AI) (viral OR trending)
+   - ("AI generated content" OR AIGC OR "AI content") (trends OR trending)
+   - (tech OR AI) (TikTok OR YouTube OR Douyin OR Bilibili) (trending OR viral OR 热门 OR 趋势)
+   - ("learn English" OR "English learning" OR "学英语") (TikTok OR YouTube OR short video) (trends OR trending)
+   - (Bilibili OR 小红书 OR 快手 OR 西瓜视频) (科技 OR AI) (热门 OR 趋势)
+   - (Tamil OR "Chinese Tamil") (English learning OR education) (YouTube OR TikTok) (trending OR viral)
+   - ("short video" OR "short-form" OR "long-form" OR "content format") (trends OR "vs long") (TikTok OR YouTube OR Douyin)
+   - (creator trends OR algorithm changes OR "content arbitrage" OR "underexplored niches") (tech OR AI) (TikTok OR YouTube OR Douyin)
 
 EQUIREMENTS:
 - Format each news item: [平台/账号]（[日期]）[事件摘要]
@@ -656,16 +505,8 @@ EQUIREMENTS:
 ```
 
 ---
-
 ## AI Agent Use Case
-- **ID**: `fa7e992794a2`
-- **Schedule**: `0 16 * * *`
-- **Repeat**: None
-- **Enabled**: True
-- **State**: scheduled
-- **Deliver**: `origin`
-- **Last Run**: 2026-04-29T17:38:53.967732+08:00
-- **Last Status**: ok
+**Job ID:** `fa7e992794a2`
 
 ```
 [SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]CRITICAL: DO NOT use the todo tool. DO NOT update task lists. DO NOT create status updates. Go DIRECTLY to web_search.
@@ -694,18 +535,16 @@ STRICT RULES:
 
 EXECUTION:
 1. Use web_search with these keywords (search each once):
-   - "AI agent" "use case" OR "use cases"
-   - "AI agents" ("real world" OR "real-world" OR "daily" OR "practical" OR "everyday" OR "I built" OR "I made" OR "my agent")
-   - site:reddit.com "AI agent" ("use case" OR "use cases" OR "I built" OR "real world example" OR "practical use")
-   - subreddit:AI_Agents OR subreddit:aiagents ("use case" OR "built an agent" OR "my workflow" OR "n8n" OR "automation")
-   - "AI agent" ("calendar" OR "email" OR "content" OR "social media" OR "research") use case
-   - "AI agent" ("use case" OR "use cases" OR "I built" OR "built my" OR "my AI agent" OR "replaced myself" OR "automated my")
-   - "AI agent" ("daily" OR "every day" OR "in my workflow" OR "real life")
-   - "AI agents" ("what I use" OR "how I use" OR "practical")
-   - "AI agent" ("personal assistant" OR "content creation" OR "social media" OR "research agent" OR "email" OR "calendar" OR "sales" OR "outbound") ("I built" OR "I made" OR "my agent")
-   - "built an AI agent" OR "deployed AI agent" OR "my AI agent does" (reddit OR x.com)
-   - "AI agent" ("n8n" OR "crewai" OR "langgraph" OR "autogen") ("use case" OR "workflow")
-   - "replaced" ("team" OR "myself" OR "SDR" OR "content team") "with AI agent"
+   - "AI agent" OR "AI agents" ("use case" OR "use cases" OR "real world" OR "real-world" OR "practical application")
+   - "AI agent" OR "AI agents" ("real life" OR "daily" OR "everyday" OR "in practice" OR "in the wild" OR "actual use")
+   - ("built an AI agent" OR "deployed an AI agent" OR "my AI agent" OR "I made an agent" OR "my agent does") (use case OR workflow)
+   - "AI agent" OR "AI agents" ("in my workflow" OR "how I use" OR "what I use" OR "personal assistant" OR "daily driver")
+   - site:reddit.com "AI agent" OR "AI agents" ("use case" OR "use cases" OR "real world" OR "I built" OR "actually using")
+   - (subreddit:AI_Agents OR subreddit:aiagents OR subreddit:artificial OR subreddit:LocalLLaMA) ("use case" OR "real world" OR "practical" OR "workflow")
+   - "AI agent" OR "AI agents" ("enterprise" OR "production" OR "deployed" OR "implemented" OR "business workflow") (use case OR cases)
+   - "AI agent" OR "AI agents" ("replaced" OR "automated" OR "handling" OR "taking over") (workflow OR task OR process)
+   - ("multi-agent" OR "multi agent" OR "agentic workflow" OR "agent team") ("use case" OR "real world" OR "practical" OR "implementation")
+   - "AI agent" OR "AI agents" ("adoption" OR "case study" OR "success story" OR "in production" OR "real results")
 
 EQUIREMENTS:
 - Format each use case: [Platform/Source]（[日期]）[Use Case Summary]
@@ -725,5 +564,3 @@ EQUIREMENTS:
 
 📝 日志记录：将运行日志写入 ~/scripts/hermes-agent-config/cron/log/AI_Agent_Use_Case.log，格式：[HH:MM:SS] 开始运行 / [HH:MM:SS] 搜索: {{KW}} / [HH:MM:SS] 运行完成
 ```
-
----
