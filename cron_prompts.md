@@ -4,7 +4,7 @@
 > Templates stored in: `~/scripts/hermes-agent-config/cron/templates/`
 > Logs stored in: `~/scripts/hermes-agent-config/cron/log/`
 
-> Updated: 2026-04-27T14:54:16+08:00
+> Updated: 2026-04-29T22:29:51+08:00
 
 ---
 
@@ -15,33 +15,27 @@
 - **Enabled**: True
 - **State**: scheduled
 - **Deliver**: `origin`
-- **Last Run**: 2026-04-27T14:09:24.133868+08:00
+- **Last Run**: 2026-04-29T22:14:02.544037+08:00
 - **Last Status**: ok
 
 ```
-[SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]
+[SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.][SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.][SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]
 
-你是携程机票爬虫助手。请执行以下任务：
+MISSION:
+You are a Ctrip flight scraper. You MUST run the scraper script at ~/scripts/ctrip_scraper/ and output a formatted markdown table.
 
-1. 激活 conda 环境并运行爬虫脚本`~/scripts/ctrip_scraper/outbound.sh`
-
-2. 读取 JSON 输出文件 `~/scripts/ctrip_scraper/outbound.json`。
-
-3. 按照以下格式输出航班信息：
-   - 📊 航班列表（#这里明确写出搜索的时间窗口）
-   - Markdown 表格，包含所有字段：**仅输出价格最低的 20 条航班**
-   - 每列宽度按该列中最长的内容对齐，用空格填充使竖线整齐对齐（像 Excel 那样整齐）
-   - 表头：'| 排名 | 航段 | 日期 | 起飞 → 到达 | 价格 | 时长 | 航班 |'
-   - 航段格式：{中文城市名}{出发代码} → {中文城市名}{到达代码}，例如：新加坡SIN→上海SHA
-   - 示例行：| 1 | 新加坡SIN→上海SHA | 5/23 | 21:00→01:35+1 | ¥1221 | 4h35m | 春秋航空 9C7496 |
-   - 按价格从低到高排序
-   - 💡 数据发现 
-   - ⚠️ 备注
-4. ⛔️ 强制规则：如果程序完全失败（例如 JSON 文件为空、或没有任何航班数据被爬取），你必须回复"程序执行失败，无法获取新数据"并简要说明失败原因。在这种情况下，严禁使用任何历史缓存数据生成表格。如果部分航线失败但仍有有效数据，请输出已获取的数据。
+CRITICAL RULES:
+1. You MUST run the scraper script: `cd ~/scripts/ctrip_scraper && python3 ctrip_scraper.py --outbound`
+2. The scraper will output JSON to ~/scripts/ctrip_scraper/output/latest.json
+3. Read the JSON output and format it as a markdown table
+4. The table MUST include: 出发城市, 到达城市, 出发日期, 出发时间, 到达时间, 飞行时长, 航空公司, 价格(RMB), 舱位, 退改签规则
+5. If the scraper fails (file empty, no flights), you MUST reply "程序执行失败，无法获取新数据" and explain why. Do NOT use cached data. If some routes succeeded but others failed, output only the successful data.
 
 5. 📝 在报告末尾附加：
    - **运行起始时间：** [使用 GMT+8 时区，格式：YYYY-MM-DD HH:MM:ss GMT+8]
    - **运行时长：** [本次执行耗时]
+
+📝 日志记录：将运行日志写入 ~/scripts/hermes-agent-config/cron/log/携程爬虫_-_outbound.log，格式：[HH:MM:SS] 开始运行 / [HH:MM:SS] 搜索: {{KW}} / [HH:MM:SS] 运行完成
 ```
 
 ---
@@ -53,33 +47,27 @@
 - **Enabled**: True
 - **State**: scheduled
 - **Deliver**: `origin`
-- **Last Run**: 2026-04-27T14:39:34.229813+08:00
+- **Last Run**: 2026-04-29T18:40:35.417435+08:00
 - **Last Status**: ok
 
 ```
-[SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]
+[SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.][SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.][SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]
 
-你是携程机票爬虫助手。请执行以下任务：
+MISSION:
+You are a Ctrip flight scraper. You MUST run the scraper script at ~/scripts/ctrip_scraper/ and output a formatted markdown table.
 
-1. 激活 conda 环境并运行爬虫脚本`~/scripts/ctrip_scraper/return.sh`
-
-2. 读取 JSON 输出文件 `~/scripts/ctrip_scraper/return.json`。
-
-3. 按照以下格式输出航班信息：
-   - 📊 航班列表（#这里明确写出搜索的时间窗口）
-   - Markdown 表格，包含所有字段：**仅输出价格最低的 20 条航班**
-   - 每列宽度按该列中最长的内容对齐，用空格填充使竖线整齐对齐（像 Excel 那样整齐）
-   - 表头：'| 排名 | 航段 | 日期 | 起飞 → 到达 | 价格 | 时长 | 航班 |'
-   - 航段格式：{中文城市名}{出发代码} → {中文城市名}{到达代码}，例如：上海SHA→新加坡SIN
-   - 示例行：| 1 | 上海SHA→新加坡SIN | 5/23 | 21:00→01:35+1 | ¥1221 | 4h35m | 春秋航空 9C7496 |
-   - 按价格从低到高排序
-   - 💡 数据发现 
-   - ⚠️ 备注
-4. ⛔️ 强制规则：如果程序完全失败（例如 JSON 文件为空、或没有任何航班数据被爬取），你必须回复"程序执行失败，无法获取新数据"并简要说明失败原因。在这种情况下，严禁使用任何历史缓存数据生成表格。如果部分航线失败但仍有有效数据，请输出已获取的数据。
+CRITICAL RULES:
+1. You MUST run the scraper script: `cd ~/scripts/ctrip_scraper && python3 ctrip_scraper.py --return`
+2. The scraper will output JSON to ~/scripts/ctrip_scraper/output/latest.json
+3. Read the JSON output and format it as a markdown table
+4. The table MUST include: 出发城市, 到达城市, 出发日期, 出发时间, 到达时间, 飞行时长, 航空公司, 价格(RMB), 舱位, 退改签规则
+5. If the scraper fails (file empty, no flights), you MUST reply "程序执行失败，无法获取新数据" and explain why. Do NOT use cached data. If some routes succeeded but others failed, output only the successful data.
 
 5. 📝 在报告末尾附加：
    - **运行起始时间：** [使用 GMT+8 时区，格式：YYYY-MM-DD HH:MM:ss GMT+8]
    - **运行时长：** [本次执行耗时]
+
+📝 日志记录：将运行日志写入 ~/scripts/hermes-agent-config/cron/log/携程爬虫_-_return.log，格式：[HH:MM:SS] 开始运行 / [HH:MM:SS] 搜索: {{KW}} / [HH:MM:SS] 运行完成
 ```
 
 ---
@@ -91,7 +79,7 @@
 - **Enabled**: True
 - **State**: scheduled
 - **Deliver**: `local`
-- **Last Run**: 2026-04-27T14:47:59.725123+08:00
+- **Last Run**: 2026-04-29T22:25:38.373214+08:00
 - **Last Status**: ok
 
 ```
@@ -99,14 +87,18 @@
 
 **任务说明**：定时检查浏览器会话是否持续有效。执行 `browser_session_checker.sh` 并检查输出 JSON 是否有效。
 
-**执行命令**：
-```bash
-cd ~/scripts/ctrip_scraper && bash browser_session_checker.sh
-```
+**步骤**：
+1. 检查浏览器是否存活（`browser_alive.json` 存在且 `alive: true`）
+2. 如果浏览器死亡，执行 `browser_start.sh` 启动
+3. 执行 `browser_session_checker.sh` 检查会话
+4. 读取 `~/scripts/ctrip_scraper/browser_session_checker.json` 输出结果
 
-**数据说明**：
-- 航线：海口 (HAK) → 新加坡 (SIN)
-- 日期：2026-05-31
+**输出格式**：
+- 如果浏览器存活且会话有效，汇报"✅ 浏览器会话正常"
+- 如果浏览器死亡，汇报"🔄 浏览器已重启"
+- 如果会话失效，汇报"❌ 会话失效，已清除缓存"
+
+**日志**：
 - 时间窗口：10:00 - 23:59
 - 成人：2 人
 
@@ -118,6 +110,8 @@ cd ~/scripts/ctrip_scraper && bash browser_session_checker.sh
 - ⚠️ 不要拿历史数据来汇报。
 
 **输出文件**：`~/scripts/ctrip_scraper/browser_session_checker.json`
+
+📝 日志记录：将运行日志写入 ~/scripts/hermes-agent-config/cron/log/browser_session_checker.log，格式：[HH:MM:SS] 开始运行 / [HH:MM:SS] 搜索: {{KW}} / [HH:MM:SS] 运行完成
 ```
 
 ---
@@ -129,252 +123,90 @@ cd ~/scripts/ctrip_scraper && bash browser_session_checker.sh
 - **Enabled**: True
 - **State**: scheduled
 - **Deliver**: `origin`
-- **Last Run**: 2026-04-26T19:48:41.290010+08:00
+- **Last Run**: 2026-04-29T15:24:26.904109+08:00
 - **Last Status**: ok
 
 ```
-[SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]
-
-🌍 美以伊国际舆情日报 — 追踪**当天**美国、以色列、伊朗相关国际舆论动态
-
-**任务说明**：使用 web_search 搜索以下关键词，**每个国家按指定次数搜索**，使用目标国家的本地语言，筛选出**当天**的舆情新闻。
-
-**重要**：每条搜索必须加 `after:20260425`（即前一天日期，确保只搜当天新闻）。如果搜索工具不支持此语法，则加 `today` 或 `today OR latest` 替代。
-
----
-
-### 🇺🇸 美国（3 次搜索）
-1. `US Israel Iran Middle East conflict OR war OR tensions after:20260425 OR latest news`
-2. `US government OR Trump OR State Department position OR statement on Israel Iran after:20260425`
-3. `American public opinion OR protest OR reaction Israel Iran war after:20260425`
-
-### 🇬🇧 英国（2 次搜索）
-1. `UK Israel Iran Middle East war OR tensions OR conflict after:20260425`
-2. `UK government OR Foreign Office stance OR statement Israel Iran after:20260425`
-
-### 🇨🇦 加拿大（1 次搜索）
-1. `Canada Israel Iran Middle East conflict after:20260425`
-
-### 🇫🇷 法国（2 次搜索）
-1. `Israël Iran guerre OR tensions Moyen-Orient actualités après:20260425`
-2. `gouvernement français OR Macron position Israël Iran après:20260425`
-
-### 🇩🇪 德国（2 次搜索）
-1. `Israel Iran Krieg OR Spannungen Naher Osten Nachrichten heute nach:20260425`
-2. `deutsche Regierung OR Scholz Haltung Israel Iran nach:20260425`
-
-### 🇯🇵 日本（1 次搜索）
-1. `中東 イスラエル イラン 紛争 OR 戦争 OR 緊張 ニュース 今日 after:20260425`
-
-### 🇪🇸 西班牙（1 次搜索）
-1. `Israel Irán guerra OR tensiones Oriente Medio noticias hoy después:20260425`
-
-### 🇧🇷 巴西（1 次搜索）
-1. `Israel Irã guerra OR tensões Oriente Médio notícias hoje depois:20260425`
-
-### 🇲🇽 墨西哥（1 次搜索）
-1. `Israel Irán guerra Oriente Medio noticias hoy después:20260425`
-
-### 🇰🇷 韩国（1 次搜索）
-1. `중동 이스라엘 이란 전쟁 OR 긴장 뉴스 오늘 after:20260425`
-
-### 🇰🇵 朝鲜（1 次搜索）
-1. `중동 이스라엘 이란 전쟁 북한 반응 after:20260425`
-
-### 🇷🇺 俄罗斯（2 次搜索）
-1. `Израиль Иран война OR конфликт Ближний Восток новости сегодня после:20260425`
-2. `правительство РФ OR Путин позиция Израиль Иран после:20260425`
-
-### 🇹🇷 土耳其（1 次搜索）
-1. `İsrail İran savaş OR gerilim Orta Doğu bugün after:20260425`
-
-### 🇮🇹 意大利（1 次搜索）
-1. `Israele Iran guerra OR tensioni Medio Oriente notizie oggi dopo:20260425`
-
-### 🇵🇹 葡萄牙（2 次搜索）
-1. `Portugal Israel Irão guerra OR tensões OR conflito Médio Oriente notícias hoje OR actualidades after:20260425`
-2. `governo português OR posição oficial OR declaração Israel Irão OR protestos OR opinião pública guerra Médio Oriente hoje after:20260425`
-
-### 🇳🇱 荷兰（1 次搜索）
-1. `Israël Iran oorlog Midden-Oosten nieuws vandaag na:20260425`
-
-### 🇵🇱 波兰（1 次搜索）
-1. `Izrael Iran wojna Bliski Wschód wiadomości dzisiaj po:20260425`
-
-### 🇮🇩 印尼（1 次搜索）
-1. `Israel Iran perang OR ketegangan Timur Tengah berita hari ini setelah:20260425`
-
-### 🇸🇬 新加坡（1 次搜索）
-1. `Singapore Israel Iran Middle East conflict after:20260425`
-
-### 🇹🇭 泰国（1 次搜索）
-1. `อิสราเอล อิหร่าน สงคราม OR ความตึงเครียด ตะวันออกกลาง ข่าววันนี้ หลัง:20260425`
-
-### 🇨🇳 中国（2 次搜索）
-1. `中东 伊朗 以色列 冲突 OR 战争 OR 局势 今天 OR 最新 after:20260425`
-2. `中国政府 OR 外交部 立场 伊朗以色列 after:20260425`
-
-### 🇹🇼 台湾（1 次搜索）
-1. `中東 伊朗 以色列 戰爭 OR 衝突 局勢 今天 after:20260425`
-
-### 🇭🇰 香港（1 次搜索）
-1. `中東 伊朗 以色列 戰爭 OR 衝突 局勢 今天 after:20260425`
-
-### 🇮🇳 印度（2 次搜索）
-1. `मध्य पूर्व ईरान इज़राइल युद्ध OR तनाव खबर आज after:20260425`
-2. `Indian government OR Modi stance on Israel Iran after:20260425`
-
-### 🇮🇳 泰米尔纳德邦（2 次搜索）
-1. `இஸ்ரேல் இரான் போர் OR மோதல் OR நடுக்கடல் OR தீவிரப்போர் தமிழ்நாடு செய்தி இன்று OR இன்றைய after:20260425`
-2. `தமிழ்நாடு அரசு OR இந்திய அரசு OR மக்கள் எதிர்ப்பு OR போராட்டம் OR பொது கருத்து இஸ்ரேல் இரான் போர் இன்று after:20260425`
-
-### 🇪🇺 欧盟（2 次搜索）
-1. `EU Israel Iran Middle East war OR sanctions OR position after:20260425`
-2. `European Commission OR von der Leyen statement Israel Iran after:20260425`
-
-### 🇦🇪 阿联酋/海湾（2 次搜索）
-1. `الإمارات OR الخليج إسرائيل إيران حرب OR توتر الشرق الأوسط أخبار اليوم after:20260425`
-2. `حكومة الإمارات OR موقف رسمي إسرائيل إيران after:20260425`
-
-### 🇸🇦 沙特（1 次搜索）
-1. `السعودية إسرائيل إيران حرب OR أزمة الخليج أخبار اليوم after:20260425`
-
-### 🇮🇷 伊朗（3 次搜索）
-1. `ایران اسرائیل جنگ OR تنش خاورمیانه خبر امروز after:20260425`
-2. `دولت ایران OR موضع رسمی اسرائیل after:20260425`
-3. `مردم ایران OR اعتراضات OR نظرات عمومی جنگ after:20260425`（民众反应较难，直接搜可获 state media 视角）
-
-### 🌍 非洲（北非重点）（1 次搜索）
-1. `أفريقيا OR مصر OR الجزائر إسرائيل إيران حرب الشرق الأوسط أخبار اليوم after:20260425`
-
----
-
-**输出格式要求（每个国家/地区必须包含以下 4 个子板块）**：
-
-对于**每一个国家/地区**，按以下格式输出：
-
-```
-### 🇺🇸 美国
-**媒体观点：**
-- [事件描述]（[日期]）[来源媒体名] — [英文原文]
-- [事件描述]（[日期]）[来源媒体名] — [英文原文]
-
-**政府立场：**
-- [政府/官员表态]（[日期]）[来源] — [英文原文]
-
-**民众舆论：**
-- [民众/社交媒体反应]（[日期]）[来源] — [英文原文]
-
-**备注：**
-- [补充说明]（[日期]）[来源] — [英文原文]
-```
-
-**全局输出结构**：
-
-## 🌍 美以伊国际舆情日报
-**📅 日期：** [当天日期，如 2026-04-26]
-
-### 🇺🇸 美国
-（按上述 4 子板块格式）
-
-### 🇬🇧 英国
-（按上述 4 子板块格式）
-
-### 🇨🇦 加拿大
-（按上述 4 子板块格式）
-
-### 🇫🇷 法国
-（按上述 4 子板块格式）
-
-### 🇩🇪 德国
-（按上述 4 子板块格式）
-
-### 🇯🇵 日本
-（按上述 4 子板块格式）
-
-### 🇪🇸 西班牙
-（按上述 4 子板块格式）
-
-### 🇧🇷 巴西
-（按上述 4 子板块格式）
-
-### 🇲🇽 墨西哥
-（按上述 4 子板块格式）
-
-### 🇰🇷 韩国
-（按上述 4 子板块格式）
-
-### 🇰🇵 朝鲜
-（按上述 4 子板块格式）
-
-### 🇷🇺 俄罗斯
-（按上述 4 子板块格式）
-
-### 🇹🇷 土耳其
-（按上述 4 子板块格式）
-
-### 🇮🇹 意大利
-（按上述 4 子板块格式）
-
-### 🇵🇹 葡萄牙
-（按上述 4 子板块格式）
-
-### 🇳🇱 荷兰
-（按上述 4 子板块格式）
-
-### 🇵🇱 波兰
-（按上述 4 子板块格式）
-
-### 🇮🇩 印尼
-（按上述 4 子板块格式）
-
-### 🇸🇬 新加坡
-（按上述 4 子板块格式）
-
-### 🇹🇭 泰国
-（按上述 4 子板块格式）
-
-### 🇨🇳 中国
-（按上述 4 子板块格式）
-
-### 🇹🇼 台湾
-（按上述 4 子板块格式）
-
-### 🇭🇰 香港
-（按上述 4 子板块格式）
-
-### 🇮🇳 印度
-（按上述 4 子板块格式）
-
-### 🇮🇳 泰米尔纳德邦
-（按上述 4 子板块格式）
-
-### 🇪🇺 欧盟
-（按上述 4 子板块格式）
-
-### 🇦🇪 阿联酋/海湾
-（按上述 4 子板块格式）
-
-### 🇸🇦 沙特
-（按上述 4 子板块格式）
-
-### 🇮🇷 伊朗
-（按上述 4 子板块格式）
-
-### 🌍 非洲
-（按上述 4 子板块格式）
-
-### 💡 全球舆论对比总结
-- [最重要的跨国家/地区舆情对比与洞察，1-2 条]
-
-### 📝 备注
-- 数据来源：各国本地媒体、政府声明、社交媒体舆论
-- 每条资讯必须标注日期、来源媒体名称及英文原文
-- 如搜索结果为空或无法获取新数据，请回复"🚫 无法获取最新信息"，严禁使用历史数据拼凑。
-
-### ⏱️ 执行监控
-- **运行起始时间：** [使用 GMT+8 时区，格式：YYYY-MM-DD HH:MM:ss GMT+8]
-- **运行时长：** [本次执行耗时]
+[SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]
+
+[SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]
+
+ROLE:
+You are a geopolitical intelligence analyst.
+
+MISSION:
+Identify REAL developments (past 24h) related to the US-Israel-Iran conflict and produce a structured intelligence report.
+
+KEY TOPICS:
+- US military movements / deployments in the Middle East
+- Israeli military operations / statements
+- Iranian military actions / rhetoric / diplomatic moves
+- Regional spillover effects (Lebanon, Syria, Yemen, Iraq, Jordan)
+- Diplomatic efforts (UN, EU, Arab states, China, Russia)
+- Oil prices / market reactions
+- Humanitarian impact
+
+STRICT RULES:
+- Only use past 24h info
+- NO hallucinated events
+- Prefer verified sources (Reuters, AP, AFP, Al Jazeera, official statements)
+- If no strong signals → say "🚫 无法获取最新信息"
+
+**⚠️ 关键 fallback 规则**：如果工具调用次数用完（收到 "maximum tool-calling iterations" 提示），**立即停止搜索**，基于已收集的数据输出报告。不要尝试继续搜索，不要输出代码。报告可以只包含已收集的部分。
+
+EXECUTION:
+1. Read the output template from: ~/scripts/hermes-agent-config/cron/templates/international_affairs_template.md
+2. Use web_search with these keywords (search each once):
+   - US Israel Iran Middle East conflict OR war 
+   - US government OR Biden/Trump OR State Department position OR statement on Israel Iran 
+   - American public opinion OR protest OR reaction Israel Iran war
+   - UK Israel Iran Middle East war OR conflict 
+   - UK government OR Foreign Office stance OR statement Israel Iran
+   - Canada Israel Iran Middle East conflict
+   - Israël Iran guerre OR conflit Moyen-Orient actualités 
+   - gouvernement français OR Macron position Israël Iran
+   - Israel Iran Krieg OR Konflikt Naher Osten Nachrichten 
+   - deutsche Regierung OR Scholz Haltung Israel Iran
+   - 中東 イスラエル イラン 紛争 OR 戦争 ニュース
+   - Israel Irán guerra OR conflicto Oriente Medio noticias
+   - Israel Irã guerra OR conflito Oriente Médio notícias
+   - Israel Irán guerra Oriente Medio noticias
+   - 중동 이스라엘 이란 전쟁 OR 분쟁 뉴스
+   - Израиль Иран война OR конфликт Ближний Восток новости 
+   - правительство РФ OR Путин позиция Израиль Иран
+   - İsrail İran savaş OR çatışma Orta Doğu
+   - Israele Iran guerra OR conflitto Medio Oriente notizie
+   - Israël Iran oorlog Midden-Oosten conflict nieuws
+   - Izrael Iran wojna Bliski Wschód konflikt wiadomości
+   - Israel Iran perang OR konflik Timur Tengah berita
+   - Singapore Israel Iran Middle East conflict
+   - อิสราเอล อิหร่าน สงคราม OR ความขัดแย้ง ตะวันออกกลาง ข่าว
+   - 中东 伊朗 以色列 冲突 OR 战争 OR 局势 
+   - 中国政府 OR 外交部 立场 伊朗以色列
+   - 中東 伊朗 以色列 戰爭 OR 衝突 局勢
+   - 中東 伊朗 以色列 戰爭 OR 衝突 局勢
+   - मध्य पूर्व ईरान इज़राइल युद्ध OR संघर्ष खबर 
+   - Indian government OR Modi stance on Israel Iran
+   - EU Israel Iran Middle East war OR sanctions OR position 
+   - European Commission OR von der Leyen statement Israel Iran
+   - الإمارات OR الخليج إسرائيل إيران حرب OR صراع الشرق الأوسط أخبار 
+   - حكومة الإمارات OR موقف رسمي إسرائيل إيران
+   - السعودية إسرائيل إيران حرب OR أزمة الخليج أخبار
+   - ایران اسرائیل جنگ OR درگیری خاورمیانه خبر 
+   - دولت ایران OR موضع رسمی اسرائیل 
+   - مردم ایران OR اعتراضات OR نظرات عمومی جنگ
+   - أفريقيا OR مصر OR الجزائر إسرائيل إيران حرب الشرق الأوسط أخبار
+   - Portugal Israel Irão guerra OR conflito Médio Oriente notícias OR actualidades 
+   - governo português OR posição oficial OR declaração Israel Irão OR protestos OR opinião pública guerra Médio Oriente
+   - இஸ்ரேல் இரான் போர் OR மோதல் OR தீவிரப்போர் 
+   - தமிழ்நாடு செய்தி 
+   - தமிழ்நாடு அரசு OR இந்திய அரசு OR மக்கள் எதிர்ப்பு OR போராட்டம் OR பொது கருத்து இஸ்ரேல் இரான் போர்
+
+EQUIREMENTS:
+- Format each news item: [来源/机构]（[日期]）[事件摘要]
+- Follow the output structure in the template file
+- Be analytical: identify escalation/de-escalation trends, not just list events
+- **如果只搜索了部分关键词，只输出已收集的数据。**
 **输出格式要求：**
 每条新闻/每条关键信息必须包含：
 - 一句中文摘要
@@ -383,6 +215,11 @@ cd ~/scripts/ctrip_scraper && bash browser_session_checker.sh
 - [中文摘要]
 - [Original text / Translation]
 
+### ⏱️ 执行监控
+- **运行起始时间：** [使用 GMT+8 时区，格式：YYYY-MM-DD HH:MM:ss GMT+8]
+- **运行时长：** [本次执行耗时]
+
+📝 日志记录：将运行日志写入 ~/scripts/hermes-agent-config/cron/log/2026美以伊冲突国际舆情日报.log，格式：[HH:MM:SS] 开始运行 / [HH:MM:SS] 搜索: {{KW}} / [HH:MM:SS] 运行完成
 ```
 
 ---
@@ -394,55 +231,71 @@ cd ~/scripts/ctrip_scraper && bash browser_session_checker.sh
 - **Enabled**: True
 - **State**: scheduled
 - **Deliver**: `origin`
-- **Last Run**: 2026-04-27T11:07:37.376679+08:00
+- **Last Run**: 2026-04-29T11:48:02.129322+08:00
 - **Last Status**: ok
 
 ```
-[SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]
+[SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]
 
-🤖 AI 模型前沿日报
+[SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]
 
-**任务说明**：检索**前一天**关于 AI 模型的最新消息。每次执行必须包含 Qwen 的最新动态查询。
+ROLE:
+You are an AI model research analyst.
 
-**重要**：每条搜索必须加 `after:20260425`（即前一天日期，确保只搜前一天新闻）。如果搜索工具不支持此语法，则加 `yesterday` 或 `last 24 hours` 替代。
+MISSION:
+Identify REAL new developments (past 24h) in the AI model space and produce a structured intelligence report.
 
-**执行步骤**：
+KEY TOPICS:
+- New model releases (LLMs, vision, audio, multimodal)
+- Model training breakthroughs (efficiency, scaling, new techniques)
+- Model evaluation benchmarks and results
+- Open-source model developments
+- Major company AI research (Google, OpenAI, Anthropic, Meta, Microsoft, etc.)
+- AI infrastructure (chips, compute, data centers)
+- AI regulation and policy affecting models
 
-1. 使用 web_search 搜索以下关键词，**每个关键词搜索 1 次**：
-   - `AI model news after:20260425`
-   - `大模型 最新 after:20260425`
-   - `LLM release 2026 after:20260425`
-   - `Qwen after:20260425`（必须查询）
-   - `AI benchmark after:20260425`
+STRICT RULES:
+- Only use past 24h info
+- NO hallucinated releases or announcements
+- Prefer verified sources (official blogs, arXiv, major tech news)
+- If no strong signals → say "🚫 无法获取最新信息"
 
-2. 从搜索结果中筛选权威来源（如 TechCrunch、The Verge、Ars Technica、机器之心、量子位、Hugging Face Blog、Qwen 官方等），并**过滤出前一天的新闻**。
+**⚠️ 关键 fallback 规则**：如果工具调用次数用完（收到 "maximum tool-calling iterations" 提示），**立即停止搜索**，基于已收集的数据输出报告。不要尝试继续搜索，不要输出代码。报告可以只包含已收集的部分。
 
-3. 按以下格式输出报告：
+EXECUTION:
+1. Read the output template from: ~/scripts/hermes-agent-config/cron/templates/ai_model_template.md
+2. Use web_search with these keywords (search each once):
+   - "AI model" OR "large language model" OR "foundation model" OR "frontier model" (release OR launch OR announcement OR introduction OR new)
+   - "large language model" OR LLM (breakthrough OR advance OR improvement OR scaling OR post-training)
+   - "open source AI model" OR "open weight model" OR "open source LLM" (release OR launch OR weights)
+   - "multimodal AI model" OR "multimodal LLM" OR "vision-language model" OR "omni model" (vision OR audio OR video)
+   - "AI model" (benchmark OR evaluation OR leaderboard OR performance) (results OR score OR ranking)
+   - "AI model" (efficiency OR parameter efficiency OR compression OR distillation OR pruning OR quantization)
+   - "AI model" (fine-tuning OR LoRA OR PEFT OR adaptation OR instruction tuning)
+   - "AI model" (reasoning OR "chain of thought" OR CoT OR "test-time compute" OR o1-like)
+   - "AI agent" OR "agentic AI" OR "autonomous agent" (planning OR reasoning OR tool use OR multi-agent)
+   - "AI model" (video generation OR text-to-video OR "video understanding")
+   - "AI model" (audio OR speech OR "speech recognition" OR "speech synthesis" OR voice)
+   - "AI model" (coding OR programming OR code generation OR "programming assistant" OR software engineering)
+   - "AI infrastructure" OR "AI compute" OR "training cluster" OR "AI chips" OR "GPU" OR "accelerator" (training OR scaling)
+   - "AI regulation" OR "AI policy" OR "AI governance" OR "model safety" OR "AI alignment" OR "responsible AI"
+   - "AI model" (medical OR healthcare OR diagnosis OR drug discovery OR clinical)
+   - "AI model" (scientific OR research OR discovery OR "scientific computing" OR simulation)
+   - "AI model" (robotics OR "robot control" OR manipulation OR embodiment)
+   - "AI model" ("autonomous vehicle" OR "self-driving" OR AV OR "autonomous driving")
+   - "AI model" (climate OR environment OR sustainability OR "climate modeling" OR carbon)
+   - "AI model" (education OR tutoring OR "personalized learning" OR edtech)
+   - AI 大模型 OR 基础模型 OR 前沿模型 (发布 OR 推出 OR 新 OR 突破)
+   - 开源大模型 OR 开源 LLM (发布 OR 权重)
+   - 多模态大模型 OR 视觉语言模型 OR Omni模型
+   - AI 智能体 OR Agentic AI OR 自主智能体
+   - AI 模型 (基准 OR 评测 OR 微调 OR LoRA OR 推理 OR 视频生成 OR 医疗 OR 科学)
 
-## 🤖 AI 模型前沿日报
-**📅 统计日期：** [前一天日期，如 2026-04-25]
-
----
-
-### 🔥 重点模型动态
-- **[模型/公司名]**：[发布/更新/突破内容摘要]
-
-### 📊 Qwen 专项
-- **最新动态：** [Qwen 最新进展、模型发布、性能提升等]
-- **相关论文/技术报告：** [如有]
-
-### 📈 行业趋势
-- **[趋势主题]**：[简要分析]
-
----
-
-### ⚠️ 备注
-- 数据来源：AI 领域权威媒体及技术博客
-- 如搜索结果为空或无法获取新数据，请回复"🚫 无法获取最新信息"，严禁使用历史数据拼凑。
-
-### ⏱️ 执行监控
-- **运行起始时间：** [使用 GMT+8 时区，格式：YYYY-MM-DD HH:MM:ss GMT+8]
-- **运行时长：** [本次执行耗时]
+REQUIREMENTS:
+- Format each news item: [公司/机构]（[日期]）[事件摘要]
+- Follow the output structure in the template file
+- Be analytical: identify trends, not just list announcements
+- **如果只搜索了部分关键词，只输出已收集的数据。**
 **输出格式要求：**
 每条新闻/每条关键信息必须包含：
 - 一句中文摘要
@@ -451,6 +304,11 @@ cd ~/scripts/ctrip_scraper && bash browser_session_checker.sh
 - [中文摘要]
 - [Original text / Translation]
 
+### ⏱️ 执行监控
+- **运行起始时间：** [使用 GMT+8 时区，格式：YYYY-MM-DD HH:MM:ss GMT+8]
+- **运行时长：** [本次执行耗时]
+
+📝 日志记录：将运行日志写入 ~/scripts/hermes-agent-config/cron/log/AI模型前沿日报.log，格式：[HH:MM:SS] 开始运行 / [HH:MM:SS] 搜索: {{KW}} / [HH:MM:SS] 运行完成
 ```
 
 ---
@@ -462,59 +320,58 @@ cd ~/scripts/ctrip_scraper && bash browser_session_checker.sh
 - **Enabled**: True
 - **State**: scheduled
 - **Deliver**: `origin`
-- **Last Run**: 2026-04-27T12:21:18.608702+08:00
+- **Last Run**: 2026-04-29T14:16:31.132347+08:00
 - **Last Status**: ok
 
 ```
-[SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]
+[SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]
 
-🤖 AI Agent 日报 — 追踪**前一天** AI Agent 领域最新动态
+[SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]
 
-**任务说明**：使用 web_search 搜索以下关键词，**每个关键词仅搜索 1 次**，筛选出**前一天**的 AI Agent 领域新闻。
+CRITICAL: DO NOT use the todo tool. DO NOT update task lists. DO NOT create status updates. Go DIRECTLY to web_search.
 
-**重要**：每条搜索必须加 `after:20260425`（即前一天日期，确保只搜前一天新闻）。如果搜索工具不支持此语法，则加 `yesterday` 或 `last 24 hours` 替代。
+ROLE:
+You are an AI agent research analyst.
 
-**必须包含的关键词（5 次搜索）**：
+MISSION:
+Identify REAL new developments (past 24h) in the AI agent space and produce a structured intelligence report.
 
-1. **AI Agent 新发布**：`AI agent launch 2026 after:20260425`
-2. **多智能体系统**：`multi-agent system 2026 after:20260425`
-3. **Agent 框架更新**：`agent framework update 2026 after:20260425`
-4. **Agent 应用案例**：`AI agent use case 2026 after:20260425`
-5. **Agent 安全与治理**：`AI agent safety governance 2026 after:20260425`
+KEY TOPICS:
+- New AI agent frameworks and platforms
+- AI agent use cases and implementations
+- Multi-agent systems and coordination
+- AI agent tools and capabilities
+- AI agent security and alignment
+- Major company AI agent developments (OpenAI, Anthropic, Google, Meta, Microsoft, etc.)
+- Open-source AI agent projects
+- AI agent integration with enterprise software
+- AI agent market and funding
 
-**必须额外搜索（2 次）**：
-6. **OpenClaw 动态**：`OpenClaw AI agent 2026 after:20260425`
-7. **Hermes Agent 动态**：`Hermes Agent AI 2026 after:20260425`
+STRICT RULES:
+- Only use past 24h info
+- NO hallucinated announcements
+- Prefer verified sources (official blogs, arXiv, major tech news)
+- If no strong signals → say "🚫 无法获取最新信息"
 
-**输出格式**：
+**⚠️ 关键 fallback 规则**：如果工具调用次数用完（收到 "maximum tool-calling iterations" 提示），**立即停止搜索**，基于已收集的数据输出报告。不要尝试继续搜索，不要输出代码。报告可以只包含已收集的部分。
 
-## 🤖 AI Agent 日报
-**📅 日期：** [前一天日期，如 2026-04-25]
+EXECUTION:
+1. Read the output template from: ~/scripts/hermes-agent-config/cron/templates/ai_agent_template.md
+2. Use web_search with these keywords (search each once):
+   - "AI agent" OR "agentic AI" (framework OR platform OR toolkit) (new OR release OR open source)
+   - "multi-agent system" OR "multi-agent" (coordination OR collaboration OR orchestration)
+   - "AI agent" (tool use OR tool calling OR reasoning OR planning OR "chain of thought")
+   - "AI agent" (memory OR security OR alignment OR safety)
+   - "AI agent" (enterprise OR business OR integration OR workflow)
+   - "AI agent" (web browsing OR browser automation OR computer use OR coding)
+   - "AI agent" (healthcare OR finance OR robotics OR education OR customer service)
+   - AI Agent OR AI 智能体 (框架 OR 多智能体 OR 工具调用 OR 企业应用) (开源 OR 落地)
 
-### 🔥 重要动态
-- [AI Agent 名称]：[关键信息，如功能、架构、性能等]
-- [关键事件]：[简要描述]
-
-### 📊 各维度分析
-- **技术突破**：[架构创新、能力升级]
-- **框架进展**：[新框架、版本更新]
-- **应用案例**：[行业落地、实际效果]
-- **安全治理**：[安全研究、监管动态]
-
-### 🔍 重点追踪
-- **OpenClaw**：[最新动态]
-- **Hermes Agent**：[最新动态]
-
-### 💡 关键发现
-- [最重要的 1-2 条新闻及其意义]
-
-### 📝 备注
-- 数据来源：各大 AI 实验室、技术博客、行业媒体
-- 如搜索结果为空或无法获取新数据，请回复"🚫 无法获取最新信息"，严禁使用历史数据拼凑。
-
-### ⏱️ 执行监控
-- **运行起始时间：** [使用 GMT+8 时区，格式：YYYY-MM-DD HH:MM:ss GMT+8]
-- **运行时长：** [本次执行耗时]
+REQUIREMENTS:
+- Format each news item: [公司/机构]（[日期]）[事件摘要]
+- Follow the output structure in the template file
+- Be analytical: identify trends, not just list announcements
+- **如果只搜索了部分关键词，只输出已收集的数据。**
 **输出格式要求：**
 每条新闻/每条关键信息必须包含：
 - 一句中文摘要
@@ -522,6 +379,12 @@ cd ~/scripts/ctrip_scraper && bash browser_session_checker.sh
 示例格式：
 - [中文摘要]
 - [Original text / Translation]
+
+### ⏱️ 执行监控
+- **运行起始时间：** [使用 GMT+8 时区，格式：YYYY-MM-DD HH:MM:ss GMT+8]
+- **运行时长：** [本次执行耗时]
+
+📝 日志记录：将运行日志写入 ~/scripts/hermes-agent-config/cron/log/AI_Agent前沿日报.log，格式：[HH:MM:SS] 开始运行 / [HH:MM:SS] 搜索: {{KW}} / [HH:MM:SS] 运行完成
 
 ```
 
@@ -534,54 +397,71 @@ cd ~/scripts/ctrip_scraper && bash browser_session_checker.sh
 - **Enabled**: True
 - **State**: scheduled
 - **Deliver**: `origin`
-- **Last Run**: 2026-04-27T13:07:35.408432+08:00
+- **Last Run**: 2026-04-29T09:07:51.738708+08:00
 - **Last Status**: ok
 
 ```
 [SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]
 
+[SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]
+
 MISSION:
-Track the latest (past 24h) global developments in Architecture AI, Construction Tech, Smart Buildings, Sustainable Materials, and PropTech. Produce a HIGH-VALUE intelligence report.
+Track the latest (past 24h) global developments in:
+- Architecture AI
+- Construction technology
+- Smart buildings / smart cities
+- Sustainable building / new materials
+- PropTech / construction startups
 
-PRIORITY TECHNOLOGIES:
-- generative AI in architecture
-- digital twin
-- BIM + AI
-- construction robotics
-- modular construction
-- 3D printed buildings
-- net-zero / sustainable materials
+GOAL:
+Produce a HIGH-VALUE intelligence report similar to a VC technology radar.
 
-CRITICAL OUTPUT REQUIREMENTS:
-- Identify investable companies
-- Identify emerging technologies
-- Score each opportunity
-- Extract signals, not just summarize news
+You MUST:
+1. Use web_search with provided keywords
+2. Read the output template from: ~/scripts/hermes-agent-config/cron/templates/architecture_tech_template.md
+3. Follow the template structure exactly
+4. Include analysis, not just links
+
+STRICT RULES:
+- Only past 24h info
+- NO hallucinated news
+- Prefer real companies, real funding, real product launches
+- If no strong signals → say "🚫 无法获取最新信息"
+
+**⚠️ 关键 fallback 规则**：如果工具调用次数用完（收到 "maximum tool-calling iterations" 提示），**立即停止搜索**，基于已收集的数据输出报告。不要尝试继续搜索，不要输出代码。报告可以只包含已收集的部分。
 
 EXECUTION:
-1. Read the output template from: ~/scripts/hermes-agent-config/cron/templates/architecture_daily_template.md
-2. Use web_search with these 14 keywords (search each once):
-   - "architecture AI generative design" latest news
-   - "construction technology robotics automation" today
-   - "smart buildings AI IoT digital twin" latest
-   - "sustainable architecture green building" innovation today
-   - "3D printing buildings construction" news
-   - "modular construction prefab housing" technology trends
-   - "architecture tech startups" AI construction funding
-   - "proptech AI building technology" venture capital
-   - 建筑 AI 建筑科技 施工 自动化 最新
-   - 智慧城市 建筑 数字孪生 技术 发展 今天
-   - 建築 AI 設計 自動化 最新ニュース
-   - 建設技術 ロボット 建築 イノベーション 今日
-   - Bau AI Architektur Technologie Innovation Nachrichten heute
-   - architecture intelligence artificielle bâtiment innovation actualités aujourd'hui
+1. Read the output template from: ~/scripts/hermes-agent-config/cron/templates/architecture_tech_template.md
+2. Use web_search with these keywords (search each once):
+   - "architecture AI" OR "generative design" OR "AI in architecture" OR "AI architectural design" 
+   - "construction technology" OR "construction robotics" OR "construction automation" OR "building robotics" OR "site automation"
+   - "smart buildings" OR "intelligent buildings" OR "building AI" OR "IoT buildings" OR "digital twin construction" OR "digital twin building" 
+   - "sustainable architecture" OR "green building technology" OR "net zero building" OR "carbon-neutral construction" innovation OR trends
+   - "3D printed buildings" OR "3D printing construction" OR "robotic 3D printing" building
+   - "modular construction" OR "prefabricated housing" OR "prefab building technology" OR "offsite construction" trends OR innovation
+   - PropTech OR ConTech OR "construction tech" OR "architecture tech" startup OR funding OR investment 
+   - "AI construction" OR "generative AI building" OR "machine learning architecture" OR "AI BIM" 
+   - "building innovation" OR "construction innovation" OR "future of construction" OR "smart construction" 
+   - 建筑 AI OR 建筑人工智能 OR 生成式设计 OR AIGC 建筑 
+   - 建筑科技 OR 施工科技 OR 建造机器人 OR 建筑自动化 OR 智能建造 
+   - 智慧建筑 OR 智能建筑 OR 数字孪生建筑 OR 建筑数字孪生 OR BIM+AI 
+   - 可持续建筑 OR 绿色建筑技术 OR 零碳建筑 OR 低碳建造 创新 OR 技术
+   - 3D打印建筑 OR 建筑3D打印 OR 增材建造 
+   - 模块化建筑 OR 装配式建筑 OR  prefabricated housing OR 预制建筑 技术 趋势
+   - PropTech OR ConTech OR 建筑科技初创 OR 建筑AI创业公司 融资
+   - 建築 AI OR 生成AI 建築 OR 建設ロボット OR 建築自動化 ニュース
+   - スマートビル OR デジタルツイン 建築 OR 3Dプリント建築 OR モジュラー建築 
+   - コンストラクションテック OR 建築テック スタートアップ
+   - Bau AI OR Architektur KI OR Generatives Design Bau OR Robotik Bau Innovation Nachrichten
+   - Nachhaltiges Bauen OR Digitaler Zwilling Bau OR 3D Druck Bauen OR Modulares Bauen 
+   - intelligence artificielle architecture OR conception générative bâtiment OR robotique construction actualités
+   - bâtiment intelligent OR jumeau numérique construction OR impression 3D bâtiment innovation
 
-REQUIREMENTS:
-- Only use info from past 24h
-- Prioritize local-language sources
-- Prefer cutting-edge tech, not generic news
-- Format each news item: [事件]（[日期]）[来源] — [中文摘要] + [原文摘要]
+EQUIREMENTS:
+- Format each news item: [公司/机构]（[日期]）[事件摘要]
 - Follow the output structure in the template file
+- Be analytical: identify trends, not just list events
+- **如果只搜索了部分关键词，只输出已收集的数据。**
 **输出格式要求：**
 每条新闻/每条关键信息必须包含：
 - 一句中文摘要
@@ -590,6 +470,11 @@ REQUIREMENTS:
 - [中文摘要]
 - [Original text / Translation]
 
+### ⏱️ 执行监控
+- **运行起始时间：** [使用 GMT+8 时区，格式：YYYY-MM-DD HH:MM:ss GMT+8]
+- **运行时长：** [本次执行耗时]
+
+📝 日志记录：将运行日志写入 ~/scripts/hermes-agent-config/cron/log/建筑科技新闻日报.log，格式：[HH:MM:SS] 开始运行 / [HH:MM:SS] 搜索: {{KW}} / [HH:MM:SS] 运行完成
 ```
 
 ---
@@ -601,10 +486,12 @@ REQUIREMENTS:
 - **Enabled**: True
 - **State**: scheduled
 - **Deliver**: `origin`
-- **Last Run**: None
-- **Last Status**: None
+- **Last Run**: 2026-04-29T07:29:38.165887+08:00
+- **Last Status**: ok
 
 ```
+[SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]
+
 [SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]
 
 ROLE:
@@ -634,35 +521,28 @@ STRICT RULES:
 - Prefer real companies / hiring signals
 - If no strong signals → say "🚫 无法获取最新信息"
 
+**⚠️ 关键 fallback 规则**：如果工具调用次数用完（收到 "maximum tool-calling iterations" 提示），**立即停止搜索**，基于已收集的数据输出报告。不要尝试继续搜索，不要输出代码。报告可以只包含已收集的部分。
+
 EXECUTION:
 1. Read the output template from: ~/scripts/hermes-agent-config/cron/templates/headhunter_daily_template.md
-2. Use web_search with these 20 keywords (search each once, rotate for variety):
-   - "AI architecture jobs" hiring generative design 2025 2026
-   - "BIM AI jobs" digital twin hiring construction tech
-   - "proptech hiring" AI architecture startups jobs
-   - "construction robotics jobs" automation building tech hiring
-   - "smart city jobs" urban tech hiring AI infrastructure
-   - "Singapore tech jobs" hiring AI architecture BIM
-   - "Germany jobs" digital twin BIM AI hiring construction
-   - "US AI construction jobs" hiring tech architecture
-   - "China AI 建筑 招聘 BIM AI 工作 2025 2026"
-   - "欧洲 建筑 科技 招聘 数字孪生 BIM 工作"
-   - "AI computational designer jobs" hiring
-   - "digital twin jobs" construction hiring 2025 2026
-   - "PropTech jobs" hiring startups funding
-   - "construction tech jobs" hiring automation robotics
-   - "smart buildings jobs" IoT AI hiring
-   - "generative design jobs" architecture AI hiring
-   - "BIM manager jobs" AI digital transformation
-   - "urban tech jobs" smart city hiring 2025 2026
-   - "Singapore construction jobs" project manager AI tech
-   - "Australia construction jobs" BIM AI hiring
+2. Use web_search with these keywords (search each once):
+   - architecture AI jobs hiring generative design jobs 
+   - BIM AI jobs digital twin hiring construction tech jobs
+   - proptech hiring AI architecture jobs startups hiring
+   - construction robotics jobs automation hiring building tech
+   - smart city jobs urban tech hiring AI infrastructure jobs
+   - Singapore tech jobs hiring AI architecture BIM jobs
+   - Europe jobs digital twin BIM AI hiring Germany Netherlands
+   - US AI construction jobs hiring tech architecture jobs
+   - China 中国 AI 建筑 招聘 BIM AI 工作
+   - 欧洲 AI 建筑 科技 招聘 数字孪生 工作
 
-REQUIREMENTS:
+EQUIREMENTS:
 - Format each news item: [公司/岗位]（[日期]）[来源]
 - Follow the output structure in the template file
 - Match jobs to the target profile with specific reasoning
 - Be analytical: identify hiring trends, not just list jobs
+- **如果只搜索了部分关键词，只输出已收集的数据。**
 **输出格式要求：**
 每条新闻/每条关键信息必须包含：
 - 一句中文摘要
@@ -671,6 +551,7 @@ REQUIREMENTS:
 - [中文摘要]
 - [Original text / Translation]
 
+📝 日志记录：将运行日志写入 ~/scripts/hermes-agent-config/cron/log/猎头日报.log，格式：[HH:MM:SS] 开始运行 / [HH:MM:SS] 搜索: {{KW}} / [HH:MM:SS] 运行完成
 ```
 
 ---
@@ -682,83 +563,70 @@ REQUIREMENTS:
 - **Enabled**: True
 - **State**: scheduled
 - **Deliver**: `origin`
-- **Last Run**: None
-- **Last Status**: None
+- **Last Run**: 2026-04-29T17:30:06.808556+08:00
+- **Last Status**: ok
 
 ```
 [SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]
 
+[SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]
+
 ROLE:
-You are a global content strategist + social media analyst specializing in multi-language self-media.
+You are a self-media trend analyst.
 
 MISSION:
-Track the latest (past 24h) trends across major self-media platforms for content creation and distribution:
-- TikTok, Douyin, Instagram, Facebook, Threads, YouTube (incl. Shorts)
-- Kuaishou, Xigua Video, Bilibili, Xiaohongshu, LinkedIn, Telegram, Reddit, Pinterest, Medium
-- WeChat / 微信（公众号 + 视频号 + 小程序 + 朋友圈）
+Identify REAL trending content (past 24h) across Chinese and global self-media platforms and produce a structured intelligence report.
 
-GOAL:
-Identify HIGH-POTENTIAL content arbitrage opportunities, not just trends. Focus on underexplored niches in Tech/IT/Computer, Architecture/Robotics/Construction tech, Learning English, Humor/Entertainment, Cross-language (e.g. learning Tamil via Chinese).
-
-FOCUS TOPICS:
-- Tech / AI / IT / programming / Computer Science
-- Architecture / robotics / construction tech
-- Learning English (methods, tips)
-- Humor / entertainment (tech-related or general)
-- Cross-language content (e.g. 用中文学Tamil, Tamil explanations of AI/tech)
+KEY TOPICS:
+- Chinese platforms: WeChat公众号, 抖音/TikTok, 小红书, B站, 微博, 知乎
+- Global platforms: YouTube, Twitter/X, Instagram, TikTok
+- Trending topics, viral content, emerging creators
+- Content format trends (short video, live streaming, podcasts, newsletters)
+- Platform algorithm changes and their impact
+- Content monetization trends
+- AI-generated content impact on self-media
 
 STRICT RULES:
-- Only use signals from past 24h (or "today"/"trending now")
-- Prefer real platform signals: viral videos, creator growth, algorithm mentions, trending pages, high-engagement posts
-- Always distinguish formats (short video / long video / image / article) and languages
-- No generic advice; be specific with examples or patterns
-- If insufficient data for a language/platform → "🚫 无法获取最新[语言/平台]信息"
-- Highlight "content arbitrage": what works in one language/format/platform but unsaturated in another
-- Consider 2026 trends: AI-assisted creation vs authenticity, social search/SEO, long-form comeback in saturated short-form markets
-- WeChat ecosystem:公众号爆款、视频号趋势、小程序内容、朋友圈传播
+- Only use past 24h info
+- NO hallucinated trends
+- Prefer verified data (platform analytics, credible media reports)
+- If no strong signals → say "🚫 无法获取最新信息"
 
-CORE OBJECTIVE:
-Find "content arbitrage opportunities" across languages, platforms, and formats — especially leveraging your background in Architecture + Computing + multi-language environment (Chinese / English / Tamil).
+**⚠️ 关键 fallback 规则**：如果工具调用次数用完（收到 "maximum tool-calling iterations" 提示），**立即停止搜索**，基于已收集的数据输出报告。不要尝试继续搜索，不要输出代码。报告可以只包含已收集的部分。
 
 EXECUTION:
-1. Read the output template from: ~/scripts/hermes-agent-config/cron/templates/selfmedia_daily_template.md
-2. Use web_search with these 28 keywords (search each once, rotate for variety):
-   - TikTok viral tech AI videos trending today 2026
-   - YouTube trending tech AI programming architecture robotics videos past 24h
+1. Read the output template from: ~/scripts/hermes-agent-config/cron/templates/selfmedia_template.md
+2. Use web_search with these keywords (search each once):
+   - TikTok viral tech AI videos trending  
+   - YouTube trending tech AI programming architecture robotics videos 
    - Instagram Reels trends tech humor English learning short video
-   - YouTube Shorts vs long form tech content trends 2026
-   - viral humor tech content TikTok Instagram 2026
+   - YouTube Shorts vs long form tech content trends 
+   - viral humor tech content TikTok Instagram 
    - AI robotics construction tech trending videos English
    - learning English via short video trends TikTok YouTube
-   - 抖音 热门 科技 AI 建筑机器人 短视频 趋势 今天
+   - 抖音 热门 科技 AI 建筑机器人 短视频 趋势 
    - 快手 爆款 编程 IT 幽默视频 创作者趋势
    - 西瓜视频 热门 科技 长视频 AI 趋势
    - Bilibili 知识区 科技 建筑机器人 弹幕视频 热门
    - 小红书 笔记 建筑设计 机器人 学习分享 趋势
    - 抖音 用中文学Tamil 热门内容
    - Bilibili 学英语 科技幽默 视频趋势
-   - 微信 公众号 科技 AI 爆款文章 趋势 今天
-   - 微信 视频号 科技 AI 短视频 热门 2026
-   - 微信公众号 算法推荐 创作者增长 趋势
-   - 微信小程序 内容 科技 AI 趋势
    - Tamil YouTube trending tech AI education videos
    - Tamil TikTok viral learning content humor tech
    - Chinese Tamil language learning content trends YouTube TikTok
    - Tamil Instagram Reels education tech viral
-   - short video vs long video trends 2026 tech content platforms
-   - content format trends short-form long-form image article self-media 2026
+   - short video vs long video trends  tech content platforms
+   - content format trends short-form long-form image article self-media 
    - cross language content arbitrage tech AI English Chinese Tamil
-   - creator trends algorithm changes TikTok YouTube Douyin 2026
+   - creator trends algorithm changes TikTok YouTube Douyin 
    - AI generated content vs authentic tech humor trends
    - underexplored niches tech robotics English learning Chinese Tamil
-   - TikTok algorithm update 2026 tech content
 
-REQUIREMENTS:
-- Format each news item: [平台/内容类型]（[日期]）[来源]
+EQUIREMENTS:
+- Format each news item: [平台/账号]（[日期]）[事件摘要]
 - Follow the output structure in the template file
-- Be analytical: identify content arbitrage, not just list trends
-- Distinguish formats (short video / long video / image / article) and languages
-- WeChat ecosystem:公众号爆款、视频号趋势、小程序内容、朋友圈传播
+- Be analytical: identify content trends, not just list viral posts
+- **如果只搜索了部分关键词，只输出已收集的数据。**
 **输出格式要求：**
 每条新闻/每条关键信息必须包含：
 - 一句中文摘要
@@ -767,6 +635,83 @@ REQUIREMENTS:
 - [中文摘要]
 - [Original text / Translation]
 
+### ⏱️ 执行监控
+- **运行起始时间：** [使用 GMT+8 时区，格式：YYYY-MM-DD HH:MM:ss GMT+8]
+- **运行时长：** [本次执行耗时]
+
+📝 日志记录：将运行日志写入 ~/scripts/hermes-agent-config/cron/log/自媒体日报.log，格式：[HH:MM:SS] 开始运行 / [HH:MM:SS] 搜索: {{KW}} / [HH:MM:SS] 运行完成
+```
+
+---
+
+## AI Agent Use Case
+- **ID**: `fa7e992794a2`
+- **Schedule**: `0 16 * * *`
+- **Repeat**: None
+- **Enabled**: True
+- **State**: scheduled
+- **Deliver**: `origin`
+- **Last Run**: 2026-04-29T17:38:53.967732+08:00
+- **Last Status**: ok
+
+```
+[SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]
+CRITICAL: DO NOT use the todo tool. DO NOT update task lists. DO NOT create status updates. Go DIRECTLY to web_search.
+
+[SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]
+
+ROLE:
+You are an AI agent use case researcher.
+
+MISSION:
+Identify REAL AI agent use cases (past 24h) shared on Reddit and other platforms, and produce a structured report.
+
+KEY SOURCES:
+- Reddit: r/ChatGPT, r/OpenAI, r/LocalLLaMA, r/aiagents, r/selfhosted, r/Python, r/programming
+- Twitter/X: AI agent creators and builders
+- Product Hunt: AI agent launches
+- GitHub: AI agent repositories
+
+STRICT RULES:
+- Only past 24h posts
+- NO hallucinated use cases
+- Must be real, practical applications
+- If no strong signals → say "🚫 无法获取最新信息"
+
+**⚠️ 关键 fallback 规则**：如果工具调用次数用完（收到 "maximum tool-calling iterations" 提示），**立即停止搜索**，基于已收集的数据输出报告。不要尝试继续搜索，不要输出代码。报告可以只包含已收集的部分。
+
+EXECUTION:
+1. Use web_search with these keywords (search each once):
+   - "AI agent" "use case" OR "use cases"
+   - "AI agents" ("real world" OR "real-world" OR "daily" OR "practical" OR "everyday" OR "I built" OR "I made" OR "my agent")
+   - site:reddit.com "AI agent" ("use case" OR "use cases" OR "I built" OR "real world example" OR "practical use")
+   - subreddit:AI_Agents OR subreddit:aiagents ("use case" OR "built an agent" OR "my workflow" OR "n8n" OR "automation")
+   - "AI agent" ("calendar" OR "email" OR "content" OR "social media" OR "research") use case
+   - "AI agent" ("use case" OR "use cases" OR "I built" OR "built my" OR "my AI agent" OR "replaced myself" OR "automated my")
+   - "AI agent" ("daily" OR "every day" OR "in my workflow" OR "real life")
+   - "AI agents" ("what I use" OR "how I use" OR "practical")
+   - "AI agent" ("personal assistant" OR "content creation" OR "social media" OR "research agent" OR "email" OR "calendar" OR "sales" OR "outbound") ("I built" OR "I made" OR "my agent")
+   - "built an AI agent" OR "deployed AI agent" OR "my AI agent does" (reddit OR x.com)
+   - "AI agent" ("n8n" OR "crewai" OR "langgraph" OR "autogen") ("use case" OR "workflow")
+   - "replaced" ("team" OR "myself" OR "SDR" OR "content team") "with AI agent"
+
+EQUIREMENTS:
+- Format each use case: [Platform/Source]（[日期]）[Use Case Summary]
+- Include: 中文总结 + 英文原文 + 链接
+- Deduplicate across sources
+- **如果只搜索了部分关键词，只输出已收集的数据。**
+**输出格式要求：**
+每条新闻/每条关键信息必须包含：
+- 中文总结：（简洁提炼核心 use case 和价值）
+- 英文：（原文关键句 或 简短英文总结）
+- 链接：（原帖 URL）
+
+⏱️ 执行监控
+- 运行起始时间：
+- 运行时长：
+- 搜索覆盖：
+
+📝 日志记录：将运行日志写入 ~/scripts/hermes-agent-config/cron/log/AI_Agent_Use_Case.log，格式：[HH:MM:SS] 开始运行 / [HH:MM:SS] 搜索: {{KW}} / [HH:MM:SS] 运行完成
 ```
 
 ---
