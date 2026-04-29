@@ -4,7 +4,7 @@
 > Templates stored in: `~/scripts/hermes-agent-config/cron/templates/`
 > Logs stored in: `~/scripts/hermes-agent-config/cron/log/`
 
-> Updated: 2026-04-29T22:52:14+08:00
+> Updated: 2026-04-29T22:58:33+08:00
 
 ---
 
@@ -19,25 +19,31 @@
 - **Last Status**: ok
 
 ```
-[SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]CRITICAL: DO NOT use the todo tool. DO NOT update task lists. DO NOT create status updates. Go DIRECTLY to web_search.
+[SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]
 
+CRITICAL: DO NOT use the todo tool. DO NOT update task lists. DO NOT create status updates. Go DIRECTLY to web_search.
 
+你是携程机票爬虫助手。请执行以下任务：
 
-MISSION:
-You are a Ctrip flight scraper. You MUST run the scraper script at ~/scripts/ctrip_scraper/ and output a formatted markdown table.
+1. 激活 conda 环境并运行爬虫脚本`~/scripts/ctrip_scraper/outbound.sh`
 
-CRITICAL RULES:
-1. You MUST run the scraper script: `cd ~/scripts/ctrip_scraper && python3 ctrip_scraper.py --outbound`
-2. The scraper will output JSON to ~/scripts/ctrip_scraper/output/latest.json
-3. Read the JSON output and format it as a markdown table
-4. The table MUST include: 出发城市, 到达城市, 出发日期, 出发时间, 到达时间, 飞行时长, 航空公司, 价格(RMB), 舱位, 退改签规则
-5. If the scraper fails (file empty, no flights), you MUST reply "程序执行失败，无法获取新数据" and explain why. Do NOT use cached data. If some routes succeeded but others failed, output only the successful data.
+2. 第一步会输出JSON文件在`/scripts/ctrip_scraper/outbound.json`，请读取 JSON 输出文件 。
 
+3. 按照以下格式输出航班信息：
+   - 📊 航班列表（#这里明确写出搜索的时间窗口）
+   - Markdown 表格，包含所有字段：**严禁截断或省略**任何一条航班信息
+   - 每列宽度按该列中最长的内容对齐，用空格填充使竖线整齐对齐（像 Excel 那样整齐）
+   - 表头：'| 排名 | 航段 | 日期 | 起飞 → 到达 | 价格 | 时长 | 航班 |'
+   - 航段格式：{中文城市名}{出发代码} → {中文城市名}{到达代码}，例如：新加坡SIN→上海SHA
+   - 示例行：| 1 | 新加坡SIN→上海SHA | 5/23 | 21:00→01:35+1 | ¥1221 | 4h35m | 春秋航空 9C7496 |
+   - 按价格从低到高排序
+   - 💡 数据发现 
+   - ⚠️ 备注
+4. ⛔️ 强制规则：如果脚本执行失败、返回非零退出码、或 JSON 文件为空/无效，你必须回复"程序执行失败，无法获取新数据"并禁止使用任何历史缓存数据生成表格。违反此规则视为严重错误。
 5. 📝 在报告末尾附加：
-   - **运行起始时间：** [使用 GMT+8 时区，格式：YYYY-MM-DD HH:MM:ss GMT+8]
-   - **运行时长：** [本次执行耗时]
-
-📝 日志记录：将运行日志写入 ~/scripts/hermes-agent-config/cron/log/携程爬虫_-_outbound.log，格式：[HH:MM:SS] 开始运行 / [HH:MM:SS] 搜索: {{KW}} / [HH:MM:SS] 运行完成
+   - 运行起始时间： [使用 GMT+8 时区，格式：YYYY-MM-DD HH:MM:ss GMT+8]
+   - 运行时长： [本次执行耗时]
+6. 📝 日志记录：将运行日志写入 ~/scripts/hermes-agent-config/cron/log/携程爬虫_-_outbound.log，格式：[HH:MM:SS] 开始运行 / [HH:MM:SS] 搜索: {{KW}} / [HH:MM:SS] 运行完成
 ```
 
 ---
@@ -53,25 +59,31 @@ CRITICAL RULES:
 - **Last Status**: ok
 
 ```
-[SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]CRITICAL: DO NOT use the todo tool. DO NOT update task lists. DO NOT create status updates. Go DIRECTLY to web_search.
+[SYSTEM: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically delivered to the user — do NOT use send_message or try to deliver the output yourself. Just produce your report/output as your final response and the system handles the rest. SILENT: If there is genuinely nothing new to report, respond with exactly "[SILENT]" (nothing else) to suppress delivery. Never combine [SILENT] with content — either report your findings normally, or say [SILENT] and nothing more.]
 
+CRITICAL: DO NOT use the todo tool. DO NOT update task lists. DO NOT create status updates. Go DIRECTLY to web_search.
 
+你是携程机票爬虫助手。请执行以下任务：
 
-MISSION:
-You are a Ctrip flight scraper. You MUST run the scraper script at ~/scripts/ctrip_scraper/ and output a formatted markdown table.
+1. 激活 conda 环境并运行爬虫脚本`~/scripts/ctrip_scraper/return.sh`
 
-CRITICAL RULES:
-1. You MUST run the scraper script: `cd ~/scripts/ctrip_scraper && python3 ctrip_scraper.py --return`
-2. The scraper will output JSON to ~/scripts/ctrip_scraper/output/latest.json
-3. Read the JSON output and format it as a markdown table
-4. The table MUST include: 出发城市, 到达城市, 出发日期, 出发时间, 到达时间, 飞行时长, 航空公司, 价格(RMB), 舱位, 退改签规则
-5. If the scraper fails (file empty, no flights), you MUST reply "程序执行失败，无法获取新数据" and explain why. Do NOT use cached data. If some routes succeeded but others failed, output only the successful data.
+2. 第一步会输出JSON文件在`/scripts/ctrip_scraper/return.json`，请读取 JSON 输出文件 。
 
+3. 按照以下格式输出航班信息：
+   - 📊 航班列表（#这里明确写出搜索的时间窗口）
+   - Markdown 表格，包含所有字段：**严禁截断或省略**任何一条航班信息
+   - 每列宽度按该列中最长的内容对齐，用空格填充使竖线整齐对齐（像 Excel 那样整齐）
+   - 表头：'| 排名 | 航段 | 日期 | 起飞 → 到达 | 价格 | 时长 | 航班 |'
+   - 航段格式：{中文城市名}{出发代码} → {中文城市名}{到达代码}，例如：新加坡SIN→上海SHA
+   - 示例行：| 1 | 新加坡SIN→上海SHA | 5/23 | 21:00→01:35+1 | ¥1221 | 4h35m | 春秋航空 9C7496 |
+   - 按价格从低到高排序
+   - 💡 数据发现 
+   - ⚠️ 备注
+4. ⛔️ 强制规则：如果脚本执行失败、返回非零退出码、或 JSON 文件为空/无效，你必须回复"程序执行失败，无法获取新数据"并禁止使用任何历史缓存数据生成表格。违反此规则视为严重错误。
 5. 📝 在报告末尾附加：
-   - **运行起始时间：** [使用 GMT+8 时区，格式：YYYY-MM-DD HH:MM:ss GMT+8]
-   - **运行时长：** [本次执行耗时]
-
-📝 日志记录：将运行日志写入 ~/scripts/hermes-agent-config/cron/log/携程爬虫_-_return.log，格式：[HH:MM:SS] 开始运行 / [HH:MM:SS] 搜索: {{KW}} / [HH:MM:SS] 运行完成
+   - 运行起始时间： [使用 GMT+8 时区，格式：YYYY-MM-DD HH:MM:ss GMT+8]
+   - 运行时长： [本次执行耗时]
+6. 📝 日志记录：将运行日志写入 ~/scripts/hermes-agent-config/cron/log/携程爬虫_-_return.log，格式：[HH:MM:SS] 开始运行 / [HH:MM:SS] 搜索: {{KW}} / [HH:MM:SS] 运行完成
 ```
 
 ---
@@ -83,7 +95,7 @@ CRITICAL RULES:
 - **Enabled**: True
 - **State**: scheduled
 - **Deliver**: `local`
-- **Last Run**: 2026-04-29T22:25:38.373214+08:00
+- **Last Run**: 2026-04-29T22:56:58.958695+08:00
 - **Last Status**: ok
 
 ```
