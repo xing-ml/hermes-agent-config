@@ -37,5 +37,5 @@
 
 **输出文件**：`~/scripts/ctrip_scraper/browser_session_checker.json`
 
-📝 日志记录：将运行日志写入 ~/scripts/hermes-agent-config/cron/log/browser_session_checker.log，格式：[HH:MM:SS] 开始运行 / [HH:MM:SS] 搜索: {{KW}} / [HH:MM:SS] 运行完成
+📝 日志记录：将运行日志追加写入 ~/scripts/hermes-agent-config/cron/log/browser_session_checker_{YYYY-MM-DD}.log（append 模式，不要覆盖），格式：[YYYY-MM-DD HH:MM:SS] 开始运行 / [YYYY-MM-DD HH:MM:SS] 搜索: {{KW}} / [YYYY-MM-DD HH:MM:SS] 运行完成
 ```

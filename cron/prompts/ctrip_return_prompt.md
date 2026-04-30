@@ -30,5 +30,5 @@
 5. 📝 在报告末尾附加：
    - 运行起始时间： [使用 GMT+8 时区，格式：YYYY-MM-DD HH:MM:ss GMT+8]
    - 运行时长： [本次执行耗时]
-6. 📝 日志记录：将运行日志写入 ~/scripts/hermes-agent-config/cron/log/携程爬虫_-_return.log，格式：[HH:MM:SS] 开始运行 / [HH:MM:SS] 搜索: {{KW}} / [HH:MM:SS] 运行完成
+6. 📝 日志记录：将运行日志追加写入 ~/scripts/hermes-agent-config/cron/log/ctrip_return_{YYYY-MM-DD}.log（append 模式，不要覆盖），格式：[YYYY-MM-DD HH:MM:SS] 开始运行 / [YYYY-MM-DD HH:MM:SS] 搜索: {{KW}} / [YYYY-MM-DD HH:MM:SS] 运行完成
 ```

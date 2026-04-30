@@ -60,6 +60,6 @@ OUTPUT REQUIREMENTS:
 - **在生成完报告后立即输出最终结果，不要做额外分析或反思。**
 - **将完整报告写入文件 `~/scripts/hermes-agent-config/cron/reports/ai_model_report_{YYYY_MM_DD}.md`，{YYYY_MM_DD} 替换为当天日期（如 2026_04_30），严格遵循模板输出结构。**
 
-📝 日志记录：将运行日志写入 ~/scripts/hermes-agent-config/cron/log/ai_model.log
-格式示例：[HH:MM:SS] 开始运行 / [HH:MM:SS] 搜索: {{keyword}} / [HH:MM:SS] 运行完成
+📝 日志记录：将运行日志追加写入 ~/scripts/hermes-agent-config/cron/log/ai_model_{YYYY-MM-DD}.log（append 模式，不要覆盖）
+格式示例：[YYYY-MM-DD HH:MM:SS] 开始运行 / [YYYY-MM-DD HH:MM:SS] 搜索: {{keyword}} / [YYYY-MM-DD HH:MM:SS] 运行完成
 ```
