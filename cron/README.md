@@ -1,115 +1,72 @@
-# Cron Jobs 配置目录
-
-> Hermes Agent 定时任务系统
+# Cron Jobs 配置说明
 
 ## 目录结构
 
 ```
 cron/
-├── templates/          # 输出模板（cronjob 报告格式）
-│   ├── architecture_daily_template.md   # 建筑科技日报
-│   ├── headhunter_daily_template.md     # 猎头日报
-│   └── selfmedia_daily_template.md      # 自媒体日报
-└── log/               # 运行日志（自动创建，每次运行前清空）
-    ├── 建筑科技新闻日报.log
-    ├── 猎头日报.log
-    └── ...
+├── prompts/        # 各 job 的 prompt 文件
+├── templates/      # 各 job 的报告模板
+├── reports/        # 生成的日报（按日期归档）
+├── log/            # 运行日志
+└── README.md       # 本文件
 ```
 
-## 模板系统
+## 命名规范
 
-### 用途
-长输出格式的 cronjob 使用模板文件，避免 prompt 过长被截断。
+| 类型 | 文件路径 | 示例 |
+|------|----------|------|
+| Prompt | `prompts/{prefix}_prompt.md` | `prompts/ctrip_outbound_prompt.md` |
+| Template | `templates/{prefix}_template.md` | `templates/ctrip_outbound_template.md` |
+| Log | `log/{prefix}.log` | `log/ctrip_outbound.log` |
+| Report | `reports/{prefix}_report_{YYYY_MM_DD}.md` | `reports/ctrip_outbound_report_2026-04-30.md` |
 
-### 模板路径
-```
-~/scripts/hermes-agent-config/cron/templates/<name>_daily_template.md
-```
+所有 4 部分共享同一个 `{prefix}` 前缀。
 
-### 使用方式
-在 cronjob prompt 中引用：
-```
-1. Read the output template from: ~/scripts/hermes-agent-config/cron/templates/<name>_daily_template.md
-```
+---
 
-### 创建新模板
-1. 在 `templates/` 下新建 `<name>_daily_template.md`
-2. 在 cronjob prompt 中引用模板路径
-3. 更新 jobs.json 和 cron_prompts.md
+## Cron Job 清单
 
-## 日志系统
+| # | Job ID | 名称 | 用途 | 频率 | 状态 | Prompt | Template |
+|---|--------|------|------|------|------|--------|----------|
+| 1 | `ai-agent` | AI Agent 日报 | 收集 AI Agent 领域每日新闻 | 每 12 小时 | 🟢 运行中 | `ai_agent_prompt.md` | `ai_agent_template.md` |
+| 2 | `ai-model` | AI Model 日报 | 收集 AI Model 领域每日新闻 | 每 12 小时 | 🟢 运行中 | `ai_model_prompt.md` | `ai_model_template.md` |
+| 3 | `con-tech` | 建筑施工科技日报 | 收集建筑科技领域每日新闻 | 每 12 小时 | 🟢 运行中 | `con_tech_prompt.md` | `con_tech_template.md` |
+| 4 | `international-affairs` | 国际事务日报 | 收集国际时事每日新闻 | 每 12 小时 | 🟢 运行中 | `international_affairs_prompt.md` | `international_affairs_template.md` |
+| 5 | `selfmedia` | 自媒体趋势分析 | 跨平台自媒体趋势报告 | 每 12 小时 | 🟢 运行中 | `selfmedia_prompt.md` | `selfmedia_template.md` |
+| 6 | `headhunter` | 猎头日报 | 收集求职/猎头机会每日信息 | 每 12 小时 | 🟢 运行中 | `headhunter_prompt.md` | `headhunter_template.md` |
+| 7 | `ctrip-outbound` | 携程出境航班 | 搜索出境航班（去程） | 每 12 小时 | 🟢 运行中 | `ctrip_outbound_prompt.md` | — |
+| 8 | `ctrip-return` | 携程返程航班 | 搜索返程航班 | 每 12 小时 | 🟢 运行中 | `ctrip_return_prompt.md` | — |
+| 9 | `browser-session-checker` | 浏览器会话检查 | 检查浏览器 session 有效性 | 每 30 分钟 | 🟢 运行中 | `browser_session_checker_prompt.md` | — |
 
-### 自动日志（所有 cronjob 已启用）
+---
 
-每个 cronjob 运行时会：
-1. **开始** → 清空日志文件，写入开始时间
-2. **每次搜索后** → 追加进度：`[时间] 搜索: <关键词>`
-3. **结束** → 追加完成标记
+## 工作流
 
-### 日志路径
-```
-~/scripts/hermes-agent-config/cron/log/<job_name>.log
-```
+### 新闻类日报（ai-agent, ai-model, con-tech, international-affairs, selfmedia, headhunter）
 
-### 查看日志
-```bash
-cat ~/scripts/hermes-agent-config/cron/log/建筑科技新闻日报.log
-```
+1. 定时触发 → 搜索前一天相关关键词新闻
+2. AI 自动过滤和整理 → 按模板生成报告
+3. 报告保存至 `reports/` → 推送至 Telegram
+4. 运行日志写入 `log/{prefix}.log`
 
-## 当前 Cron Jobs
+### 携程航班搜索（ctrip-outbound, ctrip-return）
 
-| 名称 | 时间 | 说明 |
-|------|------|------|
-| 携程爬虫 - outbound | 06:00, 10:00, 14:00, 18:00, 22:00 | 航班爬虫 |
-| 携程爬虫 - return | 06:30, 10:30, 14:30, 18:30, 22:30 | 航班爬虫 |
-| browser_session_checker | 每小时的 17,47 分 | 浏览器会话检查 |
-| 2026美以伊冲突国际舆情日报 | 15:00 | 多国舆情监控 |
-| AI模型前沿日报 | 11:00 | AI 模型新闻 |
-| AI Agent前沿日报 | 11:30 | AI Agent 新闻 |
-| 建筑科技新闻日报 | 09:00 | 建筑科技日报 |
-| 猎头日报 | 07:00 | 岗位机会匹配 |
-| 自媒体日报 | 17:00 | 自媒体趋势 |
-| AI Agent Use Case | 16:00 | Reddit/X 用例收集 |
+1. 定时触发 → 浏览器自动化搜索航班
+2. 解析结果 → 生成结构化报告
+3. 报告保存至 `reports/` → 推送至 Telegram
+4. 运行日志写入 `log/ctrip_*.log`
 
-## 操作注意事项
+### 浏览器会话检查（browser-session-checker）
 
-### 新增 Cron Job
-1. 创建 prompt（可引用模板）
-2. 使用 `cronjob(action='create')` 创建
-3. 如需模板，放入 `templates/`
-4. 更新 `cron_prompts.md`
+1. 每 30 分钟检查浏览器 session 状态
+2. 如 session 失效则自动刷新 cookie
 
-### 修改 Cron Job
-1. 使用 `cronjob(action='update')` 修改
-2. 如需改模板，修改 `templates/` 下对应文件
-3. 更新 `cron_prompts.md`
+---
 
-### 模板修改规则
-- ⚠️ 修改模板后，必须同步更新 jobs.json 中的 prompt
-- ⚠️ 模板路径统一使用 `~/scripts/hermes-agent-config/cron/templates/`
-- ⚠️ 不要修改 `~/.hermes/cron/templates/`（系统目录，保持同步）
+## 注意事项
 
-### 日志管理
-- 日志文件自动创建，无需手动管理
-- 每次运行前自动清空
-- 日志仅记录进度，不记录敏感数据
-- 如需清理：`rm ~/scripts/hermes-agent-config/cron/log/*.log`
-
-### Prompt 编写规范
-- 使用 `[SYSTEM]` 前缀确保 Telegram 推送
-- 每条搜索加时间过滤（`after:YYYYMMDD` 或 `today`）
-- 每个国家/主题只搜 1 次
-- 用本地语言搜索
-- 日报搜前一天新闻，关键词去掉年份日期
-
-## 文件同步
-
-### 配置同步
-- 本地：`~/scripts/hermes-agent-config/`
-- GitHub：https://github.com/xing-ml/hermes-agent-config.git
-- 所有修改需 git commit + push
-
-### 模板同步
-- 模板文件在 `cron/templates/` 下
-- 与 `~/.hermes/cron/templates/` 保持同步
-- 修改后 cp 到系统目录
+- **Prompt 必须加 `[SYSTEM]` 前缀**，否则 Telegram 推送不生效
+- 执行时区：GMT+8
+- 修改 prompt 或 template 后，需更新对应的 cron job
+- 所有 prompt 文件必须存在，否则 cron job 会静默失败
+- 旧版 `cron_prompts.md` 已移除，统一使用 per-job prompt 文件
