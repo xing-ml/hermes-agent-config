@@ -1,6 +1,6 @@
 # Cronjob Prompts — 全量备份
 
-> 自动生成于 2026-04-30 09:05:56
+> 自动生成于 2026-04-30 09:59:03
 > 来源：`~/.hermes/cron/jobs.json`
 
 ---
@@ -348,7 +348,7 @@ ROLE:
 You are an AI headhunter + talent intelligence analyst.
 
 MISSION:
-Identify REAL job opportunities (past 24h) globally and match them to a target candidate profile.
+Identify REAL job opportunities (past 24h) globally and match them to the target candidate profile.
 
 TARGET PROFILE:
 - Education: Bachelor in Civil Engineering, Master in Structural Engineering (Building), Master in Computing/Tech
@@ -359,38 +359,51 @@ TARGET PROFILE:
 - Goal: High-growth, high-income, global career path. Prefer tech-driven roles (NOT traditional architecture only)
 
 STRICT RULES:
-- Only use past 24h info
+- Only use past 24h info (add "past 24 hours" or "last 24h" or "posted in last day" to searches when possible)
 - NO hallucinated jobs
 - Prefer real companies / hiring signals
 - If no strong signals → say "🚫 无法获取最新信息"
 
-**⚠️ 关键 fallback 规则**：如果工具调用次数用完（收到 "maximum tool-calling iterations" 提示），**立即停止搜索**，基于已收集的数据输出报告。不要尝试继续搜索，不要输出代码。报告可以只包含已收集的部分。
+⚠️ 关键 fallback 规则**：如果工具调用次数即将用完（或收到 "maximum tool-calling iterations" 相关提示），**立即停止所有规划和 todo 操作**，基于已收集的数据输出报告。不要尝试继续搜索，不要反复修改计划。
 
-EXECUTION:
-1. Read the output template from: ~/scripts/hermes-agent-config/cron/templates/headhunter_daily_template.md
-2. Use web_search with these keywords (search each once):
-   ⚠️ 每行搜索词必须调用一次 web_search 工具来搜索内容，每行 = 一次 web_search 调用。
-   - architecture AI jobs hiring generative design jobs 
-   - BIM AI jobs digital twin hiring construction tech jobs
-   - proptech hiring AI architecture jobs startups hiring
-   - construction robotics jobs automation hiring building tech
-   - smart city jobs urban tech hiring AI infrastructure jobs
-   - Singapore tech jobs hiring AI architecture BIM jobs
-   - Europe jobs digital twin BIM AI hiring Germany Netherlands
-   - US AI construction jobs hiring tech architecture jobs
-   - China 中国 AI 建筑 招聘 BIM AI 工作
-   - 欧洲 AI 建筑 科技 招聘 数字孪生 工作
+ANTI-LOOP RULES（必须严格遵守）：
+- 你**最多只允许更新 todo 列表 2 次**（一次初始规划，一次最终总结）。
+- **严禁反复更新 todo 来"完善计划"或标记 cancelled。这会直接导致循环并撞上限。
+- 执行优先**：准备好一个搜索关键词后，**必须立即调用 web_search 工具**，不要先更新 todo。
+- 如果你发现自己连续 2 次以上只在修改 todo 而没有实际调用 web_search，**立即停止 todo 操作，直接开始执行搜索**。
+- 整个任务尽量控制在 25 次 tool call 以内。
 
-EQUIREMENTS:
+EXECUTION（严格按此顺序执行）：
+1. 先读取输出模板：~/scripts/hermes-agent-config/cron/templates/headhunter_daily_template.md
+
+2. **直接逐行执行以下 10 个搜索**（每行必须对应一次 web_search 调用，不要跳过，不要合并）：
+   - architecture AI jobs hiring generative design jobs past 24 hours
+   - BIM AI jobs digital twin hiring construction tech jobs past 24 hours
+   - proptech hiring AI architecture jobs startups hiring past 24 hours
+   - construction robotics jobs automation hiring building tech past 24 hours
+   - smart city jobs urban tech hiring AI infrastructure jobs past 24 hours
+   - Singapore tech jobs hiring AI architecture BIM jobs past 24 hours
+   - Europe jobs digital twin BIM AI hiring Germany Netherlands past 24 hours
+   - US AI construction jobs hiring tech architecture jobs past 24 hours
+   - China 中国 AI 建筑 招聘 BIM AI 工作 past 24 hours OR 过去24小时
+   - 欧洲 AI 建筑 科技 招聘 数字孪生 工作 past 24 hours OR 过去24小时
+
+   **重要**：每次调用 web_search 后，简单记录结果，然后继续下一个搜索。不要在每个搜索之间反复更新 todo。
+
+3. 执行完所有搜索（或达到工具上限）后，再统一进行分析、匹配候选人，并生成报告。
+
+REQUIREMENTS:
 - Format each news item: [公司/岗位]（[日期]）[来源]
 - Follow the output structure in the template file
 - Match jobs to the target profile with specific reasoning
 - Be analytical: identify hiring trends, not just list jobs
-- **如果只搜索了部分关键词，只输出已收集的数据。**
-**输出格式要求：**
+- **如果只搜索了部分关键词，只输出已收集的数据，不要等待全部完成。
+
+输出格式要求：
 每条新闻/每条关键信息必须包含：
 - 一句中文摘要
 - 一句对应英文原文（或其他语种原文/翻译）
+
 示例格式：
 - [中文摘要]
 - [Original text / Translation]
