@@ -51,6 +51,7 @@ OUTPUT REQUIREMENTS:
 - 运行起始时间：[GMT+8]
 - 运行时长：[本次执行耗时]
 - **在生成完报告后立即输出最终结果，不要做额外分析或反思。**
+- **将完整报告写入文件 `~/scripts/hermes-agent-config/cron/reports/international_affairs_report_{YYYY_MM_DD}.md`，{YYYY_MM_DD} 替换为当天日期（如 2026_04_30），严格遵循模板输出结构。**
 
 📝 日志记录：将运行日志写入 ~/scripts/hermes-agent-config/cron/log/美以伊.log
 格式示例：[HH:MM:SS] 开始运行 / [HH:MM:SS] 搜索: {{keyword}} / [HH:MM:SS] 运行完成
@@ -108,6 +109,7 @@ OUTPUT REQUIREMENTS:
 - 运行起始时间：[GMT+8]
 - 运行时长：[本次执行耗时]
 - **在生成完报告后立即输出最终结果，不要做额外分析或反思。**
+- **将完整报告写入文件 `~/scripts/hermes-agent-config/cron/reports/ai_model_report_{YYYY_MM_DD}.md`，{YYYY_MM_DD} 替换为当天日期（如 2026_04_30），严格遵循模板输出结构。**
 
 📝 日志记录：将运行日志写入 ~/scripts/hermes-agent-config/cron/log/AI模型日报.log
 格式示例：[HH:MM:SS] 开始运行 / [HH:MM:SS] 搜索: {{keyword}} / [HH:MM:SS] 运行完成
@@ -165,6 +167,7 @@ OUTPUT REQUIREMENTS:
 - 运行起始时间：[GMT+8]
 - 运行时长：[本次执行耗时]
 - **在生成完报告后立即输出最终结果，不要做额外分析或反思。**
+- **将完整报告写入文件 `~/scripts/hermes-agent-config/cron/reports/ai_agent_report_{YYYY_MM_DD}.md`，{YYYY_MM_DD} 替换为当天日期（如 2026_04_30），严格遵循模板输出结构。**
 
 📝 日志记录：将运行日志写入 ~/scripts/hermes-agent-config/cron/log/AI Agent前沿日报.log
 格式示例：[HH:MM:SS] 开始运行 / [HH:MM:SS] 搜索: {{keyword}} / [HH:MM:SS] 运行完成
@@ -222,6 +225,7 @@ OUTPUT REQUIREMENTS:
 - 运行起始时间：[GMT+8]
 - 运行时长：[本次执行耗时]
 - **在生成完报告后立即输出最终结果，不要做额外分析或反思。**
+- **将完整报告写入文件 `~/scripts/hermes-agent-config/cron/reports/con_tech_report_{YYYY_MM_DD}.md`，{YYYY_MM_DD} 替换为当天日期（如 2026_04_30），严格遵循模板输出结构。**
 
 📝 日志记录：将运行日志写入 ~/scripts/hermes-agent-config/cron/log/建筑科技日报.log
 格式示例：[HH:MM:SS] 开始运行 / [HH:MM:SS] 搜索: {{keyword}} / [HH:MM:SS] 运行完成
@@ -279,6 +283,7 @@ OUTPUT REQUIREMENTS:
 - 运行起始时间：[GMT+8]
 - 运行时长：[本次执行耗时]
 - **在生成完报告后立即输出最终结果，不要做额外分析或反思。**
+- **将完整报告写入文件 `~/scripts/hermes-agent-config/cron/reports/headhunter_report_{YYYY_MM_DD}.md`，{YYYY_MM_DD} 替换为当天日期（如 2026_04_30），严格遵循模板输出结构。**
 
 📝 日志记录：将运行日志写入 ~/scripts/hermes-agent-config/cron/log/猎头日报.log
 格式示例：[HH:MM:SS] 开始运行 / [HH:MM:SS] 搜索: {{keyword}} / [HH:MM:SS] 运行完成
@@ -336,6 +341,7 @@ OUTPUT REQUIREMENTS:
 - 运行起始时间：[GMT+8]
 - 运行时长：[本次执行耗时]
 - **在生成完报告后立即输出最终结果，不要做额外分析或反思。**
+- **将完整报告写入文件 `~/scripts/hermes-agent-config/cron/reports/selfmedia_report_{YYYY_MM_DD}.md`，{YYYY_MM_DD} 替换为当天日期（如 2026_04_30），严格遵循模板输出结构。**
 
 📝 日志记录：将运行日志写入 ~/scripts/hermes-agent-config/cron/log/自媒体日报.log
 格式示例：[HH:MM:SS] 开始运行 / [HH:MM:SS] 搜索: {{keyword}} / [HH:MM:SS] 运行完成
@@ -393,6 +399,7 @@ OUTPUT REQUIREMENTS:
 - 运行起始时间：[GMT+8]
 - 运行时长：[本次执行耗时]
 - **在生成完报告后立即输出最终结果，不要做额外分析或反思。**
+- **将完整报告写入文件 `~/scripts/hermes-agent-config/cron/reports/ai_agent_usecase_report_{YYYY_MM_DD}.md`，{YYYY_MM_DD} 替换为当天日期（如 2026_04_30），严格遵循模板输出结构。**
 
 📝 日志记录：将运行日志写入 ~/scripts/hermes-agent-config/cron/log/AI Agent Use Case日报.log
 格式示例：[HH:MM:SS] 开始运行 / [HH:MM:SS] 搜索: {{keyword}} / [HH:MM:SS] 运行完成
