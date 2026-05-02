@@ -1,25 +1,5 @@
-[17:00:44] 开始运行
-[17:00:44] 搜索: self media trend viral content
-[17:00:44] 搜索: WeChat/公众号 trending
-[17:00:44] 搜索: TikTok trend viral video
-[17:00:44] 搜索: Xiaohongshu trending
-[17:00:44] 搜索: Bilibili trending
-[17:00:44] 搜索: Douyin trend
-[17:00:44] 搜索: Weibo trending
-[17:00:44] 搜索: Zhihu trending
-[17:00:44] 搜索: YouTube trending creator
-[17:00:44] 搜索: content creator monetization
-[17:00:44] 搜索: short video trend
-[17:00:44] 搜索: live streaming e-commerce
-[17:00:44] 搜索: AI generated content impact
-[17:00:44] 搜索: podcast trending growth
-[17:00:44] 搜索: newsletter Substack trend
-[17:00:44] 搜索: social media algorithm change
-[17:00:44] 搜索: influencer marketing trend
-[17:00:44] 搜索: UGC trend
-[17:00:44] 搜索: creator economy size growth
-[17:00:44] 搜索: self media monetization strategy
-[17:28:10] 运行完成 - 报告已生成
-[2026-05-01 13:35:00] 开始运行
-[2026-05-01 13:35:30] 搜索: (self media OR social media OR content creator OR influencer) (YouTube OR TikTok OR Instagram OR trending OR viral OR algorithm OR monetization) (AI OR tool OR update) (recent OR 2026 OR 2025 OR past week OR past month)
-[2026-05-01 13:40:00] 运行完成 — 报告已写入: ~/scripts/hermes-agent-config/cron/reports/selfmedia_report_2026_05_01.md
+[2026-05-02 17:00:00] 开始运行
+[2026-05-02 17:00:00] 搜索: (self media OR social media OR content creator OR influencer) (YouTube OR TikTok OR Instagram OR trending OR viral OR algorithm OR monetization) (AI OR tool OR update) (recent OR 2026 OR 2025 OR past week OR past month)
+[2026-05-02 17:00:30] 搜索结果: 5条，提取2篇深度文章
+[2026-05-02 17:05:00] 报告已写入: ~/scripts/hermes-agent-config/cron/reports/selfmedia_report_2026_05_02.md
+[2026-05-02 17:05:00] 运行完成

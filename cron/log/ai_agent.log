@@ -1,33 +1,11 @@
-[12:30:00] 开始运行 AI Agent 前沿日报
-[12:30:01] 搜索: AI agent framework/platform/toolkit (past 24 hours)
-[12:30:03] 搜索完成: 获取 Google News RSS 结果
-[12:30:04] 搜索: multi-agent system coordination/collaboration (past 24 hours)
-[12:30:06] 搜索完成: 获取 Google News RSS 结果
-[12:30:07] 搜索: AI agent tool use/reasoning/memory (past 24 hours)
-[12:30:09] 搜索完成: 获取 Google News RSS 结果
-[12:30:10] 搜索: AI agent security/alignment/safety (past 24 hours)
-[12:30:12] 搜索完成: 获取 Google News RSS 结果
-[12:30:13] 搜索: AI agent enterprise/business/integration (past 24 hours)
-[12:30:15] 搜索完成: 获取 Google News RSS 结果
-[12:30:16] 搜索: AI agent browser/computer use (past 24 hours)
-[12:30:18] 搜索完成: 获取 Google News RSS 结果
-[12:30:19] 搜索: AI agent healthcare/finance/robotics (past 24 hours)
-[12:30:21] 搜索完成: 获取 Google News RSS 结果
-[12:30:22] 搜索: AI Agent 中文搜索 (过去24小时)
-[12:30:24] 搜索完成: 获取 Google News RSS 结果
-[12:30:25] 开始编译报告，共 17 条新闻
-[12:30:30] 报告写入: ~/scripts/hermes-agent-config/cron/reports/ai_agent_report_2026-04-30.md
-[12:30:31] 运行完成
-[2026-05-01 12:36:00] 开始运行
-[2026-05-01 12:36:00] 搜索: (AI agent OR "AI agents") (launch OR release OR update OR new OR announced) (recent OR "past day" OR "past 24 hours" OR "past week")
-[2026-05-01 12:36:10] 搜索: (AI agent framework OR "agent platform" OR "agent tool" OR "multi-agent" OR "multi agent") (new OR released OR launched OR system OR framework) (recent)
-[2026-05-01 12:36:15] 搜索: (AI agent OR agent) (API OR SDK OR integration OR "open source" OR GitHub) (recent)
-[2026-05-01 12:36:20] 搜索: (AI agent OR agent) (security OR safety OR alignment OR control OR research OR paper OR arXiv) (recent)
-[2026-05-01 12:36:25] 搜索: (AI agent OR agent) (enterprise OR business OR production OR cost OR pricing OR monetization OR benchmark OR evaluation) (recent)
-[2026-05-01 12:37:00] 网页提取: aiagentstore.ai/ai-agent-news/this-week
-[2026-05-01 12:37:10] 网页提取: arahi.ai/ai-agent-news
-[2026-05-01 12:37:20] 网页提取: informationweek.com/2026-enterprise-ai-predictions
-[2026-05-01 12:37:30] 网页提取: forbes.com/5-ai-agent-mistakes
-[2026-05-01 12:37:40] 网页提取: github.com/openai/openai-agents-js
-[2026-05-01 12:38:00] 报告已写入: ~/scripts/hermes-agent-config/cron/reports/ai_agent_report_2026_05_01.md
-[2026-05-01 12:38:05] 运行完成
+[2026-05-02 22:14:50] 开始运行
+[2026-05-02 22:14:50] 检查Python环境: $HOME/miniconda3/envs/daily-report/bin/python3.11 不存在，使用 python3.11
+[2026-05-02 22:15:30] 安装依赖: requests, beautifulsoup4, readability-lxml, lxml, python-dateutil
+[2026-05-02 22:16:00] 执行shell: ~/scripts/daily-report/bin/ai_agent_daily_report.sh
+[2026-05-02 22:19:57] 读取JSON: ~/scripts/daily-report/temp/ai_agent_agent_input.json
+[2026-05-02 22:19:58] JSON统计: raw_results=16, unique_results=16, clustered_events=12, final_events=12, search_errors=0
+[2026-05-02 22:20:00] 读取模板: ~/scripts/hermes-agent-config/cron/templates/ai_agent_template.md
+[2026-05-02 22:21:52] 生成报告: 基于12个事件精选7条核心动态
+[2026-05-02 22:21:52] 写入报告: ~/scripts/hermes-agent-config/cron/reports/ai_agent_report_2026_05_02.md
+[2026-05-02 22:21:52] 写入日志: ~/scripts/hermes-agent-config/cron/log/ai_agent.log
+[2026-05-02 22:21:52] 运行完成

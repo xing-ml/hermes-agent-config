@@ -11,3 +11,9 @@
 [07:02:01] 搜索: 欧洲 AI 建筑 科技 招聘 数字孪生 工作
 [07:02:01] 运行完成
 [08:51:18] 开始运行猎头日报
+[2026-05-02 07:01:00] 开始运行
+[2026-05-02 07:01:30] 搜索: (AI engineer OR LLM engineer OR AI researcher OR AI agent OR MLOps OR computer vision) (hiring OR job OR "now hiring" OR recruitment) (salary OR funding OR startup) (recent OR 2026 OR 2025 OR past week OR past month)
+[2026-05-02 07:02:00] 搜索结果: 5条搜索结果，3个页面提取成功
+[2026-05-02 07:04:00] 有效招聘信号: 10条（ByteDance, CoreWeave, Anduril, Lalamove, Databricks, Cloudinary, Human Agency, Cast AI, Sprout Social, FoodLabs）
+[2026-05-02 07:05:00] 报告已写入: ~/scripts/hermes-agent-config/cron/reports/headhunter_report_2026_05_02.md
+[2026-05-02 07:05:00] 运行完成
