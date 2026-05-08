@@ -1,5 +1,4 @@
-[2026-05-02 17:00:00] 开始运行
-[2026-05-02 17:00:00] 搜索: (self media OR social media OR content creator OR influencer) (YouTube OR TikTok OR Instagram OR trending OR viral OR algorithm OR monetization) (AI OR tool OR update) (recent OR 2026 OR 2025 OR past week OR past month)
-[2026-05-02 17:00:30] 搜索结果: 5条，提取2篇深度文章
-[2026-05-02 17:05:00] 报告已写入: ~/scripts/hermes-agent-config/cron/reports/selfmedia_report_2026_05_02.md
-[2026-05-02 17:05:00] 运行完成
+[2026-05-08 18:20:27] 开始运行
+[2026-05-08 18:20:27] 执行shell: ~/scripts/agent-daily-report/bin/selfmedia_daily_report.sh
+[2026-05-08 18:20:27] 执行shell完成 (超时)
+[2026-05-08 18:20:27] 读取JSON: 文件不存在

@@ -29,7 +29,7 @@ EXECUTION STEPS:
 1. 记录开始时间（GMT+8），记为 `start_time`。
 
 2. 准备 Python 环境：
-   - 优先使用：`$HOME/miniconda3/envs/daily_report_env/bin/python3.11`
+   - 优先使用：`$HOME/miniconda3/envs/daily-report/bin/python3.11`
    - 如果该环境不存在或依赖不完整，请安装以下依赖文件中的 requirements：
      `~/scripts/agent-daily-report/requirements.txt`
    - requirements 目录不要改，直接按该文件安装缺失依赖。
