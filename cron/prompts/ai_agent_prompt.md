@@ -31,14 +31,14 @@ EXECUTION STEPS:
 2. 准备 Python 环境：
    - 优先使用：`$HOME/miniconda3/envs/daily_report_env/bin/python3.11`
    - 如果该环境不存在或依赖不完整，请安装以下依赖文件中的 requirements：
-     `~/scripts/daily-report/requirements.txt`
+     `~/scripts/agent-daily-report/requirements.txt`
    - requirements 目录不要改，直接按该文件安装缺失依赖。
 
 3. 执行 shell 脚本：
-   `~/scripts/daily-report/bin/ai_agent_daily_report.sh`
+   `~/scripts/agent-daily-report/bin/ai_agent_daily_report.sh`
 
 4. 读取以下文件：
-   - 结构化 JSON：`~/scripts/daily-report/temp/ai_agent_agent_input.json`
+   - 结构化 JSON：`~/scripts/agent-daily-report/temp/ai_agent_agent_input.json`
    - 输出模板：`~/scripts/hermes-agent-config/cron/templates/ai_agent_template.md`
 
 5. 基于 JSON 和模板生成 Markdown 报告，严格要求：
@@ -66,8 +66,8 @@ EXECUTION STEPS:
 
 7. 日志格式：
    - `[YYYY-MM-DD HH:MM:SS] 开始运行`
-   - `[YYYY-MM-DD HH:MM:SS] 执行shell: ~/scripts/daily-report/bin/ai_agent_daily_report.sh`
-   - `[YYYY-MM-DD HH:MM:SS] 读取JSON: ~/scripts/daily-report/temp/ai_agent_agent_input.json`
+   - `[YYYY-MM-DD HH:MM:SS] 执行shell: ~/scripts/agent-daily-report/bin/ai_agent_daily_report.sh`
+   - `[YYYY-MM-DD HH:MM:SS] 读取JSON: ~/scripts/agent-daily-report/temp/ai_agent_agent_input.json`
    - `[YYYY-MM-DD HH:MM:SS] 写入报告: ~/scripts/hermes-agent-config/cron/reports/ai_agent_report_{YYYY_MM_DD}.md`
    - `[YYYY-MM-DD HH:MM:SS] 运行完成`
 
