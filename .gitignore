@@ -1,0 +1,22 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs
+cron/log/*.log
+!cron/log/.gitkeep
+
+# Reports
+cron/reports/*.md
+!cron/reports/.gitkeep
+
+# Temp files
+*.tmp
+*.swp
+*~
+
+# IDE
+.vscode/
+.idea/
