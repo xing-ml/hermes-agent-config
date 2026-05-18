@@ -28,7 +28,7 @@ IMPORTANT CONSTRAINTS:
 EXECUTION STEPS:
 1. 记录开始时间（GMT+8），记为 `start_time`。
 2. 准备 Python 环境：
-   - 优先使用：`$HOME/miniconda3/envs/daily-report/bin/python3.11`
+   - 优先使用：`$HOME/miniconda3/envs/daily-report-env/bin/python3.11`
    - 如果该环境不存在或依赖不完整，请安装：`~/scripts/agent-daily-report/requirements.txt`
 3. 执行 shell 脚本：
    `~/scripts/agent-daily-report/bin/ai_model_daily_report.sh`
